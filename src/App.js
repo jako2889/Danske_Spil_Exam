@@ -1,9 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+// import Site from "./components/site.jsx";
+import Nav from "./components/nav.jsx";
 
 function App() {
-  return <div className="App" />;
+  return (
+    <div className="App">
+      <Nav />
+    </div>
+  );
 }
 
 export default App;
