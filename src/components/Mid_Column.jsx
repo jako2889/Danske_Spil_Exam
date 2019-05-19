@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../css/Right_Column.scss";
+import "../css/Mid_Column.scss";
 import starIcon from "../assets/star.svg";
 
 export class Right_Column extends Component {
