@@ -16,7 +16,10 @@ export class FormAccountDetails extends Component {
         <div className="form_wrapper">
         <FormHeader step={this.props.step} />
             <form>
-                <h1>Form Account Details</h1>
+                    <div className="formIntroText">
+                        <h1>Opret Blå Konto</h1>
+                        <p>Med en Blå Konto kan du spille Oddset, eOddset, Tips, Dantoto, Casino, LiveCasino, Spillehjørnet, Zezam, Poker og Bingo. Du skal være minimum 18 år for at oprette en konto, så husk at have dit NemID parat.</p>
+                    </div>
                 
                 <div className="inputStyle">
                 <input type="email" placeholder="Email"

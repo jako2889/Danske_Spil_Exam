@@ -21,6 +21,50 @@ form {
     align-items: center;
     width: 100%;
 
+    select {
+        margin: 45px;
+        transition: .5s;
+        border: solid #535353;
+        border-radius: 0;
+        border-width: 0 0 3px;
+        background: none;
+        width: 50%;
+        color: grey;
+
+        font-size: 18px; 
+        cursor: pointer;
+
+        &:focus {
+        border-color: black;
+        color: black;
+        // removing default focus style
+        outline: 0;
+        }
+
+    }
+
+    .nemIDImg {
+        width: 30%;
+    }
+
+    .formIntroText {
+        text-align: center;
+        width: 50%;
+        margin-bottom: 2.5%;
+
+        p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            color: #535353;
+        }
+    }
+
+    .maxBettingText {
+        text-align: center;
+        width: 50%;
+    }
+
     .inputStyle {
         position: relative;
         margin: 45px;
@@ -46,6 +90,7 @@ form {
         transition: all 0.2s ease-out;
         font-size: 18px;
     }
+
 
         input {
             transition: .5s;
@@ -81,6 +126,58 @@ form {
             }
         }
     }
+    // IF FORM HAS TWO INPUT FIELDS IN SAME PLACE
+    .doubleInputfield1 {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        
+
+        .inputStyle {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .inputStyle:nth-child(1) {
+        width: 100%;
+        margin-right: 5%;
+        }
+    }
+    .doubleInputfield2 {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 50%;
+        
+
+        .inputStyle {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .inputStyle:nth-child(1) {
+        width: 100%;
+        margin-left: 5%;
+        }
+    }
+
+    // IF FORM HAS TWO BUTTONS WE USE THIS CLASS
+    .FormDoubleButtons {
+
+        button {
+            margin: 10px;
+        }
+
+        button:nth-child(2) {
+            background: #E4E4E4;
+            border-color: #E4E4E4;
+
+            &:hover {
+                background: darken(#E4E4E4, 10%);
+                border-color: darken(#E4E4E4, 10%);
+            }
+        }
+    }
+
     button {
     background-color: #feb700;
     color: #323232;
