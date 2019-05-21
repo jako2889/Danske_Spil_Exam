@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FormHeader from "./FormHeader";
 
 export class FormNemID extends Component {
     continue = e => {
@@ -14,6 +15,7 @@ export class FormNemID extends Component {
         const { values, handleChange } = this.props;
         return (
                     <React.Fragment>
+                    <FormHeader step={this.props.step} /> 
                     <h1>Form Nem ID</h1>    
                     <button onClick={this.continue}>Continue</button>
                     <button onClick={this.back}>Back</button>

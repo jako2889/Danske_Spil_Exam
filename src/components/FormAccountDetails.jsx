@@ -10,10 +10,11 @@ export class FormAccountDetails extends Component {
     render() {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
+
         return (
             
         <div className="form_wrapper">
-        <FormHeader />
+        <FormHeader step={this.props.step} />
             <form>
                 <h1>Form Account Details</h1>
                 
@@ -60,5 +61,6 @@ export class FormAccountDetails extends Component {
         )
     }
 }
+
 
 export default FormAccountDetails
