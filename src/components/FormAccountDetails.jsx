@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormHeader from "./FormHeader";
 import "../css/FormStyle.scss";
 
 export class FormAccountDetails extends Component {
@@ -12,6 +13,7 @@ export class FormAccountDetails extends Component {
         return (
             
         <div className="form_wrapper">
+        <FormHeader />
             <form>
                 <h1>Form Account Details</h1>
                 
