@@ -9,9 +9,7 @@ import FormBeginFlow from "./components/FormBeginFlow.jsx";
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Mid_Column />
-      <FormBeginFlow />
+
     </div>
   );
 }
