@@ -1,23 +1,32 @@
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 52rem;
-    margin: 4rem auto 0;
+.form_wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(100px,1000px) 1fr;
+    justify-items: center;
+    grid-template-areas: ". Form .";
 
     //ONLY WHEN STYLING - REMOVE WHEN DONE FOR FINAL FORM
     background: white;
 
+form {
+    grid-area: Form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
     .inputStyle {
-        margin: 45px;
-        width: 100%;
         position: relative;
+        margin: 45px;
+        width: 50%;
 
     .helpText {
         position: absolute;
         width: 100%;
         top: 25px;
         left: 0;
+        opacity: 0;
+        color: #c50005;
+        transition: .5s;
     }
 
 
@@ -48,18 +57,20 @@ form {
             }
             &:valid {
                 color: #004b32;
+                border-color: #004b32;
             }
             &:invalid {
                 color: #c50005;
+
+                & + .helpText {
+                    opacity: 1;
+                }
 
             }
             //FOR PLACEHOLDER OVER INPUT
             &:placeholder-shown + label {
                 opacity: 0;
                 transform: translateY(50px);
-            }
-            &[type="email"]:invalid + .helpText::before {
-                content: 'You must enter a valid email.';
             }
         }
     }
@@ -86,8 +97,6 @@ form {
     }
     }
 
-}
+ }
 
-.inputError {
-    opacity: 0;
 }

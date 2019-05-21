@@ -9,7 +9,9 @@ export class FormAccountDetails extends Component {
     render() {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
-        return (  
+        return (
+            
+        <div className="form_wrapper">
             <form>
                 <h1>Form Account Details</h1>
                 
@@ -20,7 +22,7 @@ export class FormAccountDetails extends Component {
                  required
                  ></input> 
                 <label>Email</label>
-                <span className="helpText"></span>
+                <div className="helpText">Required</div>
                  </div>
 
                 <div className="inputStyle">
@@ -52,6 +54,7 @@ export class FormAccountDetails extends Component {
                 <button onClick={this.continue}>Continue</button>
 
             </form>
+        </div>
         )
     }
 }
