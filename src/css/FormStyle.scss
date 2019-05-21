@@ -1,0 +1,109 @@
+.form_wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(100px,1000px) 1fr;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    grid-template-areas: 
+    ". Header ."
+    ". Form .";
+
+    //ONLY WHEN STYLING - REMOVE WHEN DONE FOR FINAL FORM
+    background: white;
+
+  .formHeader_con {
+      grid-area: Header;
+  }  
+
+form {
+    grid-area: Form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .inputStyle {
+        position: relative;
+        margin: 45px;
+        width: 50%;
+
+    .helpText {
+        position: absolute;
+        width: 100%;
+        top: 25px;
+        left: 0;
+        opacity: 0;
+        color: #c50005;
+        transition: .5s;
+    }
+
+
+    label {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.2s ease-out;
+        font-size: 18px;
+    }
+
+        input {
+            transition: .5s;
+            border: solid #535353;
+            border-radius: 0;
+            border-width: 0 0 3px;
+            background: none;
+            width: 100%;
+
+            font-size: 18px;
+
+            &:focus {
+                border-color: black;
+            // removing default focus style
+                outline: 0;
+            }
+            &:valid {
+                color: #004b32;
+                border-color: #004b32;
+            }
+            &:invalid {
+                color: #c50005;
+
+                & + .helpText {
+                    opacity: 1;
+                }
+
+            }
+            //FOR PLACEHOLDER OVER INPUT
+            &:placeholder-shown + label {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
+    }
+    button {
+    background-color: #feb700;
+    color: #323232;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #feb700;
+    border-radius: 5px;
+    -webkit-transition: opacity .4s ease;
+    transition: opacity .4s ease;
+
+    &:hover {
+        background: darken(#feb700, 10%);
+        border-color: darken(#feb700, 10%);
+    }
+    }
+
+ }
+
+}
