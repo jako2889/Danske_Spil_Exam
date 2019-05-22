@@ -119,7 +119,7 @@ export class RightColumn extends Component {
               }
             >
               <div>Astralis</div>
-              <div class="ods_sats">
+              <div className="ods_sats">
                 <div>2,50</div>
                 <div>0kr.</div>
                 <div className="r_col_icon">

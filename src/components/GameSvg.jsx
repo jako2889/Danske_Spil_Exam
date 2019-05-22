@@ -5,7 +5,7 @@ export class GameSvg extends Component {
   render() {
     return (
 
-<svg width="1000" height="1000" viewBox="0 0 1920 1080">
+<svg viewBox="0 0 1920 1080">
   <defs>
   </defs>
   <title>CounterStrike_Game_real</title>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/theGame.scss";
 import joystick from "../assets/joystick.svg";
-import placeHolderImageCS from "../assets/placeholderCS.jpg";
+import GameSvg from "./GameSvg";
 
 export class TheGame extends Component {
   render() {
@@ -14,8 +14,8 @@ export class TheGame extends Component {
             </div>
             <div className="tg_league">ESL Pro League</div>
           </div>
-          {/* <TheGameStep1 /> */}
-          <TheGameStep2 />
+          {/* <TheGameStep2 /> */}
+          <TheGameStep1 />
         </div>
       </div>
     );
@@ -24,6 +24,17 @@ export class TheGame extends Component {
 export default TheGame;
 
 export class TheGameStep1 extends Component {
+  constructor() {
+    super();
+    this.game = React.createRef();
+}
+
+componentDidMount() {
+
+    const gameRef = this.game.current;
+    console.log(gameRef);
+
+}
   render() {
     return (
       <div className="tg_s1_wrap">
@@ -41,7 +52,7 @@ export class TheGameStep1 extends Component {
             </div>
           </div>
           <div className="tg_svg_con">
-            <img src={placeHolderImageCS} alt="SVG ANIMATION PLACEHOLDER" />
+            <GameSvg ref={this.game}/>
           </div>
         </div>
       </div>
