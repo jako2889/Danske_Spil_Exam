@@ -3,6 +3,7 @@ import LeftColumn from "./LeftColumn.jsx";
 import Step1 from "./Step1.jsx";
 import MidCol from "./Mid_Column.jsx";
 import RightCol from "./RightColumn.jsx";
+
 import "../css/mainGrid.scss";
 
 export class site extends Component {
