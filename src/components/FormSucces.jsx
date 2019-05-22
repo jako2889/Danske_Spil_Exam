@@ -8,10 +8,14 @@ export class FormSucces extends Component {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
     return (
-      <div className="succes_wrapper">
+
+      <div className="succes_site_wrapper">
+          
+          <img className="succesBanner" src={Banner} alt="Banner"></img>
+
+      <div className="succes_content_wrapper">
 
         <div className="succes_con">
-          <img className="succesBanner" src={Banner} alt="Banner"></img>
 
               <div className="succesText">
                   <h1>Bekræftet Blå Konto</h1>
@@ -24,6 +28,7 @@ export class FormSucces extends Component {
               <FormFooter />
       </div>        
 
+      </div>
       </div>
     )
   }

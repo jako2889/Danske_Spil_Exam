@@ -57,7 +57,7 @@ export class FormAccountDetails extends Component {
                  ></input> 
                  <label>Indtast adgangskode igen</label>
                  </div>      
-                <button onClick={this.continue}>Continue</button>
+                <button type="submit" onClick={this.continue}>Næste</button>
 
             </form>
         </div>

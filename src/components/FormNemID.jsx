@@ -27,7 +27,7 @@ export class FormNemID extends Component {
                     <img className="nemIDImg" src={NemidImage} alt="Nem ID"></img>
         
                      <div className="FormDoubleButtons">
-                        <button onClick={this.continue}>Continue</button>
+                        <button onClick={this.continue}>Næste</button>
                         <button onClick={this.back}>Back</button>
                     </div> 
     
