@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Nav />
       <div id="site_content_wrapper">
-        <Site />
+         <Site /> 
       </div>
     </div>
   );
