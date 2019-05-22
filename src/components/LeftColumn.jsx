@@ -99,15 +99,17 @@ class LeftColumn extends React.Component {
     console.log(this.props.step);
     return (
       <article className="left_column">
-        <div
-          className="search"
-          style={
-            stepTjek2 ? { outline: "2px solid orange" } : { outline: "none" }
-          }
-        >
-          <div>
-            <div className="seachIcon">
-              <img src={search} />
+        <div>
+          <div
+            className="search"
+            style={
+              stepTjek2 ? { outline: "2px solid orange" } : { outline: "none" }
+            }
+          >
+            <div>
+              <div className="seachIcon">
+                <img src={search} />
+              </div>
             </div>
           </div>
           {this.props.step === 2 && yBox}

@@ -1,94 +1,97 @@
 body {
-    background: linear-gradient(270deg, #363636 8.85%, #6E6E6E 41.67%, #6E6E6E 54.17%, #363636 91.15%);
+  background: linear-gradient(
+    270deg,
+    #363636 8.85%,
+    #6e6e6e 41.67%,
+    #6e6e6e 54.17%,
+    #363636 91.15%
+  );
 
-.Modal_wrapper {
+  .Modal_wrapper {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr minmax(100px,1000px) 1fr;
+    grid-template-columns: 1fr minmax(100px, 1000px) 1fr;
     justify-items: center;
     grid-template-areas: ". Modal .";
     margin-top: 5%;
 
     .Modal_con {
-        display: grid;
-        grid-area: Modal;
-        grid-template-columns: 10px 1fr 1fr 10px;
-        grid-template-areas: ". Text Img .";
-        width: 706px;
-        height: 470px;
-    
-        background: #111C30;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      display: grid;
+      grid-area: Modal;
+      grid-template-columns: 10px 1fr 1fr 10px;
+      grid-template-areas: ". Text Img .";
+      width: 706px;
+      height: 470px;
 
-        .Modal_text {
-            grid-area: Text;
-            color: white;
-            width: 100%;
-            padding: 10px;
-            margin-top: 5%;
+      background: #111c30;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-            h1 {
-                font-family: Roboto;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 52px;
-                line-height: 61px;
-                margin-bottom: 0;
+      .Modal_text {
+        grid-area: Text;
+        color: white;
+        width: 100%;
+        padding: 10px;
+        margin-top: 5%;
 
-            }
-
-            p {
-                font-family: Roboto;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 22px;
-                line-height: 26px;
-            }
-
-            .Button_con {
-             margin-top: 10%;
-
-                &:hover {
-                    opacity: .8;
-                }
-                button {
-                    width: 198px;
-                    height: 45px;
-                    border: none;
-                    cursor: pointer;
-                    
-                    font-family: Roboto;
-                    font-style: normal;
-                    font-weight: bold;
-                    font-size: 22px;
-                    line-height: 26px;
-                    text-decoration-line: underline;
-    
-                    color: #111C30;
-    
-                    background: linear-gradient(180deg, #FFC425 0%, #D18A0A 100%);
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                }
-                .button_tip {
-                    margin-left: 23%;
-                    transform: rotate(180deg);
-                    border-color: #D18A0A transparent;
-                    border-style: solid;
-                    border-width: 0px 20px 12px 20px;
-                    height: 0px;
-                    width: 0px;
-                    cursor: pointer;
-                    
-                }
-            }
-
+        h1 {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 52px;
+          line-height: 61px;
+          margin-bottom: 0;
         }
-        img {
-            grid-area: Img;
-            width: 100%;
-            padding: 10px;
-            align-self: center;
+
+        p {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 26px;
         }
+
+        .Button_con {
+          margin-top: 10%;
+
+          &:hover {
+            opacity: 0.8;
+          }
+          button {
+            width: 198px;
+            height: 45px;
+            border: none;
+            cursor: pointer;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 26px;
+            text-decoration-line: underline;
+
+            color: #111c30;
+
+            background: linear-gradient(180deg, #ffc425 0%, #d18a0a 100%);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          }
+          .button_tip {
+            margin-left: 23%;
+            transform: rotate(180deg);
+            border-color: #d18a0a transparent;
+            border-style: solid;
+            border-width: 0px 20px 12px 20px;
+            height: 0px;
+            width: 0px;
+            cursor: pointer;
+          }
+        }
+      }
+      img {
+        grid-area: Img;
+        width: 100%;
+        padding: 10px;
+        align-self: center;
+      }
     }
-    
-}
+  }
 }

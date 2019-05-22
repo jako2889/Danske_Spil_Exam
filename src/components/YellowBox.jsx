@@ -17,7 +17,12 @@ export class YellowBox extends Component {
     if (
       this.props.step === 2 ||
       this.props.step === 3 ||
-      this.props.step === 7
+      this.props.step === 7 ||
+      this.props.step === 8 ||
+      this.props.step === 9 ||
+      this.props.step === 10 ||
+      this.props.step === 12 ||
+      this.props.step === 13
     ) {
       next = (
         <button id="yb_but" onClick={this.continue}>
@@ -26,10 +31,28 @@ export class YellowBox extends Component {
       );
     }
 
+    // STEP 12
+    let stepTjek12;
+    // ---------------------------------------------------
+    if (this.props.step > 11) {
+      stepTjek12 = true;
+    }
+    // -------------------------------------------------
+
     return (
       <div id="YellowBox_wrap">
-        <div id="yb_content_con">
-          <div id="arrowLeft_con">
+        <div
+          id="yb_content_con"
+          style={stepTjek12 ? { left: "-590px" } : { outline: "none" }}
+        >
+          <div
+            id="arrowLeft_con"
+            style={
+              stepTjek12
+                ? { left: "263px", transform: "rotate(180deg)" }
+                : { outline: "none" }
+            }
+          >
             <div id="arrowLeft" />
           </div>
           <div id="header_con">

@@ -8,11 +8,13 @@
   border-radius: 0px;
   transition: 2s;
   color: white;
-
+  float: right;
+  align-self: flex-end;
+  grid-column: 5/5;
   #yb_content_con {
     position: absolute;
     width: 300px;
-    left: 260px;
+    left: 40px;
     top: -40px;
     padding: 10px;
     box-shadow: none;
