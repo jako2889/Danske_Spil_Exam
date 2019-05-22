@@ -3,12 +3,13 @@ import LeftColumn from "./LeftColumn.jsx";
 import Step1 from "./Step1.jsx";
 import MidCol from "./Mid_Column.jsx";
 import RightCol from "./RightColumn.jsx";
-
+import BlackCover from "./BlackCover.jsx";
+import TheGame from "./TheGame.jsx";
 import "../css/mainGrid.scss";
 
 export class site extends Component {
   state = {
-    step: 1
+    step: 16
   };
 
   //PROCEED TO NEXT STEP
@@ -39,7 +40,7 @@ export class site extends Component {
       case 1:
         return (
           <div id="site_content_container">
-            <Step1 nextStep={this.nextStep} />;
+            <Step1 nextStep={this.nextStep} />>
           </div>
         );
       case 2:
@@ -129,6 +130,24 @@ export class site extends Component {
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
             <RightCol nextStep={this.nextStep} step={this.state.step} />
+          </div>
+        );
+      case 15:
+        return (
+          <div id="site_content_container">
+            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <MidCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol nextStep={this.nextStep} step={this.state.step} />
+          </div>
+        );
+      case 16:
+        return (
+          <div id="site_content_container">
+            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <MidCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover />
+            <TheGame />
           </div>
         );
     }
