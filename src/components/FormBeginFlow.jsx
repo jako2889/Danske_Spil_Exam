@@ -60,6 +60,7 @@ export class FormBeginFlow extends Component {
                     nextStep={this.nextStep}
                     handleChange={this.handleChange}
                     values={values}
+                    step={this.state.step}
                     />
                 )
             case 2:
@@ -68,6 +69,7 @@ export class FormBeginFlow extends Component {
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}
                 values={values}
+                step={this.state.step}
                 />
             case 3:
                 return <FormSecurityDetails
@@ -75,6 +77,7 @@ export class FormBeginFlow extends Component {
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}
                 values={values}
+                step={this.state.step}
                 />
             case 4:
                 return <FormNemID
@@ -82,6 +85,7 @@ export class FormBeginFlow extends Component {
                 prevStep={this.prevStep}
                 handleChange={this.handleChange}
                 values={values}
+                step={this.state.step}
                 />
             case 5:
                 return <FormSucces

@@ -10,12 +10,16 @@ export class FormAccountDetails extends Component {
     render() {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
+
         return (
             
         <div className="form_wrapper">
-        <FormHeader />
+        <FormHeader step={this.props.step} />
             <form>
-                <h1>Form Account Details</h1>
+                    <div className="formIntroText">
+                        <h1>Opret Blå Konto</h1>
+                        <p>Med en Blå Konto kan du spille Oddset, eOddset, Tips, Dantoto, Casino, LiveCasino, Spillehjørnet, Zezam, Poker og Bingo. Du skal være minimum 18 år for at oprette en konto, så husk at have dit NemID parat.</p>
+                    </div>
                 
                 <div className="inputStyle">
                 <input type="email" placeholder="Email"
@@ -53,12 +57,13 @@ export class FormAccountDetails extends Component {
                  ></input> 
                  <label>Indtast adgangskode igen</label>
                  </div>      
-                <button onClick={this.continue}>Continue</button>
+                <button type="submit" onClick={this.continue}>Næste</button>
 
             </form>
         </div>
         )
     }
 }
+
 
 export default FormAccountDetails
