@@ -4,9 +4,32 @@ import joystick from "../assets/joystick.svg";
 import GameSvg from "./GameSvg";
 
 export class TheGame extends Component {
+  // MAKE COUNTER / AFTER COUNTER ENDS GO TO NEXT STEP
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
   render() {
+    console.log(this.props.nextStepAPP);
+
+    // STEP 15
+    // ---------------------------------------------------
+    // let TheGameStep1;
+    // if (this.props.step === 15) {
+    //   TheGameStep1 = <TheGameStep1 />;
+    // }
+    // console.log(this.props.step);
+    // -------------------------------------------------
+    // STEP 16
+    // ---------------------------------------------------
+    // let TheGameStep2;
+    // if (this.props.step === 16) {
+    //   TheGameStep2 = <TheGameStep2 />;
+    // }
+    // -------------------------------------------------
+
     return (
-      <div className="theGame_wrap">
+      <div className="theGame_wrap" onClick={this.continue}>
         <div className="theGame_con">
           <div className="tg_head">
             <div className="tg_icon">
@@ -14,8 +37,10 @@ export class TheGame extends Component {
             </div>
             <div className="tg_league">ESL Pro League</div>
           </div>
-          {/* <TheGameStep2 /> */}
-          <TheGameStep1 />
+          {this.props.step === 15 && <TheGameStep1 />}
+          {this.props.step === 16 && (
+            <TheGameStep2 nextStepAPP={this.props.nextStepAPP} />
+          )}
         </div>
       </div>
     );
@@ -27,14 +52,12 @@ export class TheGameStep1 extends Component {
   constructor() {
     super();
     this.game = React.createRef();
-}
+  }
 
-componentDidMount() {
-
+  componentDidMount() {
     const gameRef = this.game.current;
     console.log(gameRef);
-
-}
+  }
   render() {
     return (
       <div className="tg_s1_wrap">
@@ -52,7 +75,7 @@ componentDidMount() {
             </div>
           </div>
           <div className="tg_svg_con">
-            <GameSvg ref={this.game}/>
+            <GameSvg ref={this.game} />
           </div>
         </div>
       </div>
@@ -78,7 +101,9 @@ export class TheGameStep2 extends Component {
           <div>250kr.</div>
           <div>BETTNG BONUS</div>
         </div>
-        <button className="tg_s2_but">OPET KONTO</button>
+        <button className="tg_s2_but" onClick={this.props.nextStepAPP}>
+          OPET KONTO
+        </button>
       </div>
     );
   }

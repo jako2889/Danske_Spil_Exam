@@ -6,10 +6,11 @@ import RightCol from "./RightColumn.jsx";
 import BlackCover from "./BlackCover.jsx";
 import TheGame from "./TheGame.jsx";
 import "../css/mainGrid.scss";
+import FormBeginFlow from "./FormBeginFlow.jsx";
 
 export class site extends Component {
   state = {
-    step: 16
+    step: 1
   };
 
   //PROCEED TO NEXT STEP
@@ -31,8 +32,6 @@ export class site extends Component {
   render() {
     const { step } = this.state;
 
-    // return <div>HEJ</div>;
-
     switch (step) {
       //   default:*/
       // // return <MainStep nextStep={this.nextStep} step={this.state.step} />;
@@ -40,7 +39,7 @@ export class site extends Component {
       case 1:
         return (
           <div id="site_content_container">
-            <Step1 nextStep={this.nextStep} />>
+            <Step1 nextStep={this.nextStep} />
           </div>
         );
       case 2:
@@ -132,12 +131,15 @@ export class site extends Component {
             <RightCol nextStep={this.nextStep} step={this.state.step} />
           </div>
         );
+
       case 15:
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
             <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover nextStep={this.nextStep} step={this.state.step} />
+            <TheGame nextStep={this.nextStep} step={this.state.step} />
           </div>
         );
       case 16:
@@ -146,8 +148,12 @@ export class site extends Component {
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
             <RightCol nextStep={this.nextStep} step={this.state.step} />
-            <BlackCover />
-            <TheGame />
+            <BlackCover nextStep={this.nextStep} step={this.state.step} />
+            <TheGame
+              nextStep={this.nextStep}
+              step={this.state.step}
+              nextStepAPP={this.props.nextStepAPP}
+            />
           </div>
         );
     }
