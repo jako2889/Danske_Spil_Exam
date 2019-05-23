@@ -209,6 +209,15 @@ export class FormPersonalDetails extends Component {
                             <option value="Vietnam">Vietnam</option>
                     </select>
 
+                    <div className="inputStyle">
+                    <input type="text" placeholder="Telefonnummer"
+                     onChange={handleChange("phone")}
+                     defaultValue={values.phone}
+                     required
+                     ></input> 
+                    <label>Telefonnummer</label> 
+                    </div>
+
                     <div className="FormDoubleButtons">
                     <button onClick={this.continue}>Næste</button>
                     <button onClick={this.back}>Back</button>
