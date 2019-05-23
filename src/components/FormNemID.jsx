@@ -4,14 +4,39 @@ import "../css/FormStyle.scss";
 import NemidImage from "../assets/nemid.svg";
 
 export class FormNemID extends Component {
-    continue = e => {
+    post = e => {
         e.preventDefault();
+
+    // MAKE VALUES FROM STATE INTO STRING    
+        const postData = JSON.stringify(this.props.values);
+
+        console.log("THIS IS THE DATA ",postData);
+
+    // FETCH DATABASE AND POST DATA STRING TO DATABASE
+        fetch("https://volt3sem-11e6.restdb.io/rest/information", {
+            method: "post",
+            headers: {
+             "Content-Type": "application/json; charset=utf-8",
+             "x-apikey": "5ca21c32df5d634f46ecb11b",
+             "cache-control": "no-cache"
+            },
+            body: postData
+        })
+        .then(res => res.json())
+        .then(data => {
+    
+        console.log(data);
+        
+     });
+
+    // GO TO NEXT STEP 
         this.props.nextStep();
     }
     back = e => {
         e.preventDefault();
         this.props.prevStep();
     }
+
     render() {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
@@ -27,7 +52,7 @@ export class FormNemID extends Component {
                     <img className="nemIDImg" src={NemidImage} alt="Nem ID"></img>
         
                      <div className="FormDoubleButtons">
-                        <button onClick={this.continue}>Næste</button>
+                        <button onClick={this.post}>Næste</button>
                         <button onClick={this.back}>Back</button>
                     </div> 
     
