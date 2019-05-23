@@ -16,6 +16,7 @@ export class EsportList extends Component {
 
     // SETS STEP FOR CLICK AND  BORDER TURE / FALSE
     let stepTjek5;
+
     let stepTjek6;
     let stepTjek7 = false;
 

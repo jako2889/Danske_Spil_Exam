@@ -3,6 +3,7 @@
   grid-template-columns: 1fr minmax(50px, 1400px) 1fr;
   grid-template-areas: ". n .";
   background-color: #111c30;
+  z-index: -1;
 }
 
 .row_1_con {

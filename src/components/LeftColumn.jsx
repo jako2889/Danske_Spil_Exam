@@ -3,11 +3,28 @@ import arrowRight from "../assets/arrow_right.svg";
 import SportsgreneList from "./SportsgreneList.jsx";
 import yellowBox, { YellowBox } from "./YellowBox.jsx";
 import "../css/leftCol.scss";
+import { TweenMax, Back } from "gsap";
 
 // ICONS
 import search from "../assets/search.svg";
 
-class LeftColumn extends React.Component {
+class LeftColumn extends Component {
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      y: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+  }
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -97,8 +114,9 @@ class LeftColumn extends React.Component {
     }
 
     console.log(this.props.step);
+
     return (
-      <article className="left_column">
+      <article className="left_column" ref={div => (this.myElement = div)}>
         <div>
           <div
             className="search"

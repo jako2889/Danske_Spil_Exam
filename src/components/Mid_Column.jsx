@@ -3,6 +3,7 @@ import "../css/Mid_Column.scss";
 import starIcon from "../assets/star.svg";
 import yellowBox, { YellowBox } from "./YellowBox.jsx";
 import { ETIME } from "constants";
+import { TweenMax, Back } from "gsap";
 
 export class Mid_Column extends Component {
   continue = e => {
@@ -34,6 +35,22 @@ export class Mid_Column extends Component {
 export default Mid_Column;
 
 export class First_row extends Component {
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      y: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+  }
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -89,7 +106,7 @@ export class First_row extends Component {
     // -------------------------------------------------
 
     return (
-      <div className="mid_wrapper">
+      <div className="mid_wrapper" ref={div => (this.myElement = div)}>
         <div className="mid_con">
           <p>Forside > Esport > Counter-Strike GO > ESL Pro League</p>
 
@@ -151,6 +168,22 @@ export class First_row extends Component {
 }
 
 export class Scnd_Column extends Component {
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      y: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+  }
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -212,82 +245,86 @@ export class Scnd_Column extends Component {
         style={
           stepTjek10 ? { outline: "2px solid orange" } : { outline: "none" }
         }
+        ref={div => (this.myElement = div)}
       >
-        <tr>
-          <th>Tid</th>
-          <th>Kamp</th>
-          <th>
-            <div className="th_odds_con">
-              <div>1</div>
-              <div>X</div>
-              <div>2</div>
-            </div>
-          </th>
-          <th>{this.props.step === 10 && yBox} </th>
-        </tr>
-        <tr
-          style={
-            stepTjek11 ? { outline: "2px solid orange" } : { outline: "none" }
-          }
-        >
-          <td>15:00</td>
-          <td>Astralis - Liquid</td>
-          <td>
-            <div className="odds_con">
-              <div
-                className="odds_1"
-                onClick={stepTjek11 ? this.continue : undefined}
-              >
-                2,50
+        <thead>
+          <tr>
+            <th>Tid</th>
+            <th>Kamp</th>
+            <th>
+              <div className="th_odds_con">
+                <div>1</div>
+                <div>X</div>
+                <div>2</div>
               </div>
-              <div>-</div>
-              <div
-                className="odds_2"
-                onClick={stepTjek11 ? this.continue : undefined}
-              >
-                2,50
+            </th>
+            <th>{this.props.step === 10 && yBox} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            style={
+              stepTjek11 ? { outline: "2px solid orange" } : { outline: "none" }
+            }
+          >
+            <td>15:00</td>
+            <td>Astralis - Liquid</td>
+            <td>
+              <div className="odds_con">
+                <div
+                  className="odds_1"
+                  onClick={stepTjek11 ? this.continue : undefined}
+                >
+                  2,50
+                </div>
+                <div>-</div>
+                <div
+                  className="odds_2"
+                  onClick={stepTjek11 ? this.continue : undefined}
+                >
+                  2,50
+                </div>
               </div>
-            </div>
-          </td>
-          <td>+6 {this.props.step === 11 && yBox}</td>
-        </tr>
-
-        <tr>
-          <td>15:55</td>
-          <td>Winstrike - x-kom</td>
-          <td>
-            <div className="odds_con">
-              <div className="odds_1">3,15</div>
-              <div>-</div>
-              <div className="odds_2">1,35</div>
-            </div>
-          </td>
-          <td>+14</td>
-        </tr>
-        <tr>
-          <td>16:00</td>
-          <td>Flash Wolves - Phon Vu Buffalo</td>
-          <td>
-            <div className="odds_con">
-              <div className="odds_1">1,10</div>
-              <div>-</div>
-              <div className="odds_2">6,50</div>
-            </div>
-          </td>
-          <td>+30</td>
-        </tr>
-        <tr>
-          <td>17:00</td>
-          <td>pro100 - Team Spirit</td>
-          <td>
-            <div className="odds_con">
-              <div className="odds_1">3,45</div>
-              <div>-</div>
-              <div className="odds_2">1,30</div>
-            </div>
-          </td>
-          <td>+4</td>
-        </tr>
+            </td>
+            <td>+6 {this.props.step === 11 && yBox}</td>
+          </tr>
+          <tr>
+            <td>15:55</td>
+            <td>Winstrike - x-kom</td>
+            <td>
+              <div className="odds_con">
+                <div className="odds_1">3,15</div>
+                <div>-</div>
+                <div className="odds_2">1,35</div>
+              </div>
+            </td>
+            <td>+14</td>
+          </tr>
+          <tr>
+            <td>16:00</td>
+            <td>Flash Wolves - Phon Vu Buffalo</td>
+            <td>
+              <div className="odds_con">
+                <div className="odds_1">1,10</div>
+                <div>-</div>
+                <div className="odds_2">6,50</div>
+              </div>
+            </td>
+            <td>+30</td>
+          </tr>
+          <tr>
+            <td>17:00</td>
+            <td>pro100 - Team Spirit</td>
+            <td>
+              <div className="odds_con">
+                <div className="odds_1">3,45</div>
+                <div>-</div>
+                <div className="odds_2">1,30</div>
+              </div>
+            </td>
+            <td>+4</td>
+          </tr>
+        </tbody>
       </table>
     );
   }

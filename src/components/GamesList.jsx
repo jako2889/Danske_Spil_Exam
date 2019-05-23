@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import arrowRight from "../assets/arrow_right.svg";
 import yellowBox, { YellowBox } from "./YellowBox.jsx";
 
 export class GamesList extends Component {
@@ -13,10 +12,9 @@ export class GamesList extends Component {
     let ybContent;
 
     // SETS STEP FOR CLICK AND  BORDER TURE / FALSE
-    let stepTjek6;
     let stepTjek7;
 
-    // STEP 6
+    // STEP 7
     // ---------------------------------------------------
     if (this.props.step === 7) {
       ybContent = {
@@ -26,7 +24,6 @@ export class GamesList extends Component {
       };
       yBox = <YellowBox nextStep={this.props} ybContent={ybContent} />;
 
-      stepTjek6 = false;
       stepTjek7 = true;
     }
     // -------------------------------------------------

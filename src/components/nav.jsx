@@ -14,14 +14,14 @@ export class Nav extends Component {
               <div>
                 <div className="Logo_con">
                   <div className="logo">
-                    <img src={logo_1} />
+                    <img src={logo_1} alt="logo" />
                   </div>
                 </div>
                 <div className="col_1">
                   <div>
                     <a href="#">Flere spil</a>
                     <div className="arrowDown">
-                      <img src={arrowDown} alt="" />
+                      <img src={arrowDown} alt="arrow down" />
                     </div>
                   </div>
                   <a href="#">Hjælp</a>
@@ -49,7 +49,7 @@ export class Nav extends Component {
                   {" "}
                   <a href="#">TITEL</a>
                   <div className="arrowDown">
-                    <img src={arrowDown} alt="" />
+                    <img src={arrowDown} alt="arrown down" />
                   </div>
                 </div>
                 <div>
@@ -68,28 +68,28 @@ export class Nav extends Component {
                   {" "}
                   <a href="#">Managerspil</a>
                   <div className="arrowDown">
-                    <img src={arrowDown} alt="" />
+                    <img src={arrowDown} alt=" arrow down" />
                   </div>
                 </div>
                 <div>
                   {" "}
                   <a href="#">Kampagner</a>
                   <div className="arrowDown">
-                    <img src={arrowDown} alt="" />
+                    <img src={arrowDown} alt="arrow down" />
                   </div>
                 </div>
                 <div>
                   {" "}
                   <a href="#">Statistik</a>
                   <div className="arrowDown">
-                    <img src={arrowDown} alt="" />
+                    <img src={arrowDown} alt="arrow down" />
                   </div>
                 </div>
                 <div>
                   {" "}
                   <a href="#">Alt om Oddset</a>
                   <div className="arrowDown">
-                    <img src={arrowDown} alt="" />
+                    <img src={arrowDown} alt="arrow down" />
                   </div>
                 </div>
               </div>

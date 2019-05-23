@@ -4,11 +4,28 @@ import arrowRight from "../assets/arrow_right.svg";
 import infoIcon from "../assets/info.svg";
 import deleteIcon from "../assets/delete.svg";
 import yellowBox, { YellowBox } from "./YellowBox.jsx";
+import { TweenMax, Back } from "gsap";
 
 export class RightColumn extends Component {
   state = {
     sats: 0
   };
+
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      y: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+  }
 
   continue = e => {
     this.props.nextStep();
@@ -107,7 +124,7 @@ export class RightColumn extends Component {
     console.log(this.props.Kampvinder);
     console.log("HALOOOO");
     return (
-      <article className="right_column">
+      <article className="right_column" ref={div => (this.myElement = div)}>
         <div
           style={
             stepTjek12 ? { outline: "2px solid orange" } : { outline: "none" }

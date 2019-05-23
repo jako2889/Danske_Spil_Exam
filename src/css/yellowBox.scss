@@ -3,14 +3,16 @@
   width: 0px;
   height: 0px;
   padding: 0px;
+  opacity: 1;
   margin: 0;
   box-sizing: border-box;
   border-radius: 0px;
-  transition: 2s;
   color: white;
   float: right;
   align-self: flex-end;
   grid-column: 5/5;
+  transform: scale(0); // transform-origin: center left;
+
   #yb_content_con {
     position: absolute;
     width: 300px;
