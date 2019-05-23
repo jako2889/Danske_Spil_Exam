@@ -10,7 +10,8 @@ import FormBeginFlow from "./FormBeginFlow.jsx";
 
 export class site extends Component {
   state = {
-    step: 1
+    step: 1,
+    Kampvinder: ""
   };
 
   //PROCEED TO NEXT STEP
@@ -19,6 +20,28 @@ export class site extends Component {
     this.setState({
       step: step + 1
     });
+  };
+
+  // SET KAMPVINDER
+
+  setKampvinder = e => {
+    console.log(e.target);
+
+    // this.setState({
+    //   Kampvinder: "hej"
+    // });
+
+    let clickedTeam = e.target.className;
+    if (clickedTeam === "odds_1") {
+      this.setState({
+        Kampvinder: "Astralis"
+      });
+    }
+    if (clickedTeam === "odds_2") {
+      this.setState({
+        Kampvinder: "Liquid"
+      });
+    }
   };
 
   //PROCEED TO PREV STEP
@@ -104,7 +127,11 @@ export class site extends Component {
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
-            <MidCol nextStep={this.nextStep} step={this.state.step} />
+            <MidCol
+              nextStep={this.nextStep}
+              step={this.state.step}
+              setKampvinder={this.setKampvinder}
+            />
           </div>
         );
       case 12:
@@ -112,7 +139,11 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol
+              nextStep={this.nextStep}
+              step={this.state.step}
+              Kampvinder={this.state.Kampvinder}
+            />
           </div>
         );
       case 13:
@@ -120,7 +151,11 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol
+              nextStep={this.nextStep}
+              step={this.state.step}
+              Kampvinder={this.state.Kampvinder}
+            />
           </div>
         );
       case 14:
@@ -128,7 +163,11 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol
+              nextStep={this.nextStep}
+              step={this.state.step}
+              Kampvinder={this.state.Kampvinder}
+            />
           </div>
         );
 
@@ -137,7 +176,11 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol
+              nextStep={this.nextStep}
+              step={this.state.step}
+              Kampvinder={this.state.Kampvinder}
+            />
             <BlackCover nextStep={this.nextStep} step={this.state.step} />
             <TheGame nextStep={this.nextStep} step={this.state.step} />
           </div>
@@ -147,7 +190,11 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol nextStep={this.nextStep} step={this.state.step} />
+            <RightCol
+              nextStep={this.nextStep}
+              step={this.state.step}
+              Kampvinder={this.state.Kampvinder}
+            />
             <BlackCover nextStep={this.nextStep} step={this.state.step} />
             <TheGame
               nextStep={this.nextStep}

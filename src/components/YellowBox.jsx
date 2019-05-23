@@ -8,7 +8,7 @@ export class YellowBox extends Component {
     this.props.nextStep.nextStep();
   };
   render() {
-    console.log(this.props.ybContent);
+    // console.log(this.props.ybContent);
 
     const ybC = this.props.ybContent;
 

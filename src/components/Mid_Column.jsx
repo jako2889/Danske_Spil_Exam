@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/Mid_Column.scss";
 import starIcon from "../assets/star.svg";
 import yellowBox, { YellowBox } from "./YellowBox.jsx";
+import { ETIME } from "constants";
 
 export class Mid_Column extends Component {
   continue = e => {
@@ -13,7 +14,11 @@ export class Mid_Column extends Component {
     let midRow2;
     if (this.props.step > 9) {
       midRow2 = (
-        <Scnd_Column step={this.props.step} nextStep={this.props.nextStep} />
+        <Scnd_Column
+          step={this.props.step}
+          nextStep={this.props.nextStep}
+          setKampvinder={this.props.setKampvinder}
+        />
       );
     }
     console.log(this.props.nextStep);
@@ -149,7 +154,10 @@ export class Scnd_Column extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
+    this.props.setKampvinder(e);
+    // console.dir(e);
   };
+
   render() {
     // VARIBALE WIL BE SET DEPENDING ON STEP
     let yBox;
@@ -197,6 +205,7 @@ export class Scnd_Column extends Component {
       );
       stepTjek11 = true;
     }
+
     // -------------------------------------------------
     return (
       <table

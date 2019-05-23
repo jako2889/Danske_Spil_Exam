@@ -6,9 +6,34 @@ import deleteIcon from "../assets/delete.svg";
 import yellowBox, { YellowBox } from "./YellowBox.jsx";
 
 export class RightColumn extends Component {
+  state = {
+    sats: 0
+  };
+
   continue = e => {
-    e.preventDefault();
     this.props.nextStep();
+  };
+
+  satsInputContinue = function(e) {
+    // console.log(e.target.value);
+    e.preventDefault();
+
+    if (e.target.value == 100) {
+      this.continue();
+    }
+  };
+
+  satsInput = function(e) {
+    // console.log(e.target.value);
+    this.setState({
+      sats: e.target.value
+    });
+
+    // e.preventDefault();
+
+    if (e.target.value == 100) {
+      this.continue();
+    }
   };
 
   render() {
@@ -79,7 +104,8 @@ export class RightColumn extends Component {
       stepTjek14 = true;
     }
     // -------------------------------------------------
-
+    console.log(this.props.Kampvinder);
+    console.log("HALOOOO");
     return (
       <article className="right_column">
         <div
@@ -118,17 +144,26 @@ export class RightColumn extends Component {
                   : { outline: "none" }
               }
             >
-              <div>Astralis</div>
+              <div>{this.props.Kampvinder}</div>
               <div className="ods_sats">
                 <div>2,50</div>
-                <div>0kr.</div>
+                <form action="#">
+                  <input
+                    type="text"
+                    id="sats_input"
+                    placeholder={"0kr."}
+                    onChange={
+                      stepTjek13 ? this.satsInput.bind(this) : undefined
+                    }
+                  />
+                </form>
                 <div className="r_col_icon">
                   <img src={deleteIcon} alt="delete icon" />
                 </div>
               </div>
             </div>
             {this.props.step === 13 && yBox}
-            <div>Mulig gevinst: 0,00kr.</div>
+            <div>Mulig gevinst: {this.state.sats * 2.5}kr.</div>
           </div>
           <div
             className="samlet_gevinst"
@@ -141,11 +176,11 @@ export class RightColumn extends Component {
 
               <div>
                 <div>Samlet indsats:</div>
-                <div>0,00kr.</div>
+                <div>{this.state.sats}kr.</div>
               </div>
               <div>
                 <div>Mulig gevinst i alt:</div>
-                <div>0,00kr.</div>
+                <div>{this.state.sats * 2.5}kr.</div>
               </div>
             </div>
             <div className="slet">
