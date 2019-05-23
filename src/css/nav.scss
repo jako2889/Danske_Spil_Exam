@@ -87,3 +87,14 @@ img {
   margin-left: 5px;
   margin-top: 0px;
 }
+
+.data_list {
+  position: relative;
+  color: yellow;
+  font-weight: 900;
+  z-index: 1000;
+}
+.data_list:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

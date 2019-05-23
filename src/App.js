@@ -4,8 +4,7 @@ import Nav from "./components/nav.jsx";
 import Step1 from "./components/Step1";
 import Mid_Column from "./components/Mid_Column.jsx";
 import FormBeginFlow from "./components/FormBeginFlow.jsx";
-
-// function App() {
+import List from "./components/List.jsx";
 
 // }
 
@@ -19,6 +18,13 @@ export class App extends Component {
     const { step } = this.state;
     this.setState({
       step: step + 1
+    });
+  };
+
+  showListSite = () => {
+    const { step } = this.state;
+    this.setState({
+      step: 3
     });
   };
 
@@ -37,7 +43,7 @@ export class App extends Component {
       case 1:
         return (
           <div className="App">
-            <Nav />
+            <Nav showListSite={this.showListSite} />
             <div id="site_content_wrapper">
               <Site nextStepAPP={this.nextStepAPP} />
             </div>
@@ -46,8 +52,14 @@ export class App extends Component {
       case 2:
         return (
           <div className="App">
-            <Nav />
+            <Nav showListSite={this.showListSite} />
             <FormBeginFlow />
+          </div>
+        );
+      case 3:
+        return (
+          <div className="App">
+            <List />
           </div>
         );
     }

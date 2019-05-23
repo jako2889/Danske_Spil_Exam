@@ -26,6 +26,9 @@ export class Nav extends Component {
                   </div>
                   <a href="#">Hjælp</a>
                   <a href="#">Om os</a>
+                  <div className="data_list" onClick={this.props.showListSite}>
+                    DATA LIST
+                  </div>
                 </div>
               </div>
               <div>
