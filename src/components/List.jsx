@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav  from "./nav";
+import "../css/List.scss";
 
 export class List extends Component {
 
@@ -42,19 +43,26 @@ componentDidMount() {
 
 // CHECK IF DATA IS LOADED IF NOT RETURN LOADING DATA ELSE RETURN LIST OF EMAILS    
     if(!isLoaded) {
-        return <div>Loading data...</div>
+        return <div className="LoadingData">Loading data...</div>
     }else {
         return (
-            <div className="list">
-            <ul>
-                {items.map(item => (
-        
-                    <li>{item.email}</li>
-        
-                ))};
-        
-            </ul>
-            </div>
+            <div className="list_wrapper">
+            <Nav />
+                <div className="list_container">
+                    <div className="list">
+                    <h1>List of Information</h1>
+                    <p>Click on a email for more details.</p>
+                        <ul>
+                            {items.map(item => (
+                    
+                                <li><b>Email:</b> {item.email}</li>
+                    
+                            ))};
+                    
+                        </ul>
+                    </div>
+                </div>
+            </div>            
             )
     }
 
