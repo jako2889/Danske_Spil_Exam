@@ -9,7 +9,7 @@ import basket from "../assets/basket.svg";
 import gaming from "../assets/gaming.svg";
 import puck from "../assets/puck.svg";
 
-class SportsgreneList extends React.Component {
+class SportsgreneList extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -22,7 +22,6 @@ class SportsgreneList extends React.Component {
 
     // SETS STEP FOR CLICK AND  BORDER TURE / FALSE
 
-    let stepTjek4;
     let stepTjek5;
     let stepTjek6 = false;
 
@@ -42,7 +41,6 @@ class SportsgreneList extends React.Component {
         />
       );
 
-      stepTjek4 = false;
       stepTjek5 = true;
     }
     // -------------------------------------------------

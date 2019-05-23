@@ -6,7 +6,6 @@ import RightCol from "./RightColumn.jsx";
 import BlackCover from "./BlackCover.jsx";
 import TheGame from "./TheGame.jsx";
 import "../css/mainGrid.scss";
-import FormBeginFlow from "./FormBeginFlow.jsx";
 
 export class site extends Component {
   state = {
@@ -21,6 +20,8 @@ export class site extends Component {
       step: step + 1
     });
   };
+
+  // SET BLACK COVER INDEX
 
   // SET KAMPVINDER
 
@@ -69,36 +70,42 @@ export class site extends Component {
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />
           </div>
         );
       case 3:
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 4:
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 5:
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 6:
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 7:
         return (
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 8:
@@ -106,6 +113,7 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 9:
@@ -113,6 +121,7 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
 
@@ -121,6 +130,7 @@ export class site extends Component {
           <div id="site_content_container">
             <LeftColumn nextStep={this.nextStep} step={this.state.step} />
             <MidCol nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 11:
@@ -132,6 +142,7 @@ export class site extends Component {
               step={this.state.step}
               setKampvinder={this.setKampvinder}
             />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 12:
@@ -144,6 +155,7 @@ export class site extends Component {
               step={this.state.step}
               Kampvinder={this.state.Kampvinder}
             />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 13:
@@ -156,6 +168,7 @@ export class site extends Component {
               step={this.state.step}
               Kampvinder={this.state.Kampvinder}
             />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 14:
@@ -168,6 +181,7 @@ export class site extends Component {
               step={this.state.step}
               Kampvinder={this.state.Kampvinder}
             />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
 
@@ -183,6 +197,7 @@ export class site extends Component {
             />
             <BlackCover nextStep={this.nextStep} step={this.state.step} />
             <TheGame nextStep={this.nextStep} step={this.state.step} />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
       case 16:
@@ -195,12 +210,12 @@ export class site extends Component {
               step={this.state.step}
               Kampvinder={this.state.Kampvinder}
             />
-            <BlackCover nextStep={this.nextStep} step={this.state.step} />
             <TheGame
               nextStep={this.nextStep}
               step={this.state.step}
               nextStepAPP={this.props.nextStepAPP}
             />
+            <BlackCover step={this.state.step} />{" "}
           </div>
         );
     }

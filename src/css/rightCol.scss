@@ -1,4 +1,6 @@
 .right_column {
+  position: relative;
+  z-index: 6;
   .kupon_con {
     display: flex;
     width: 100%;
