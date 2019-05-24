@@ -1,5 +1,15 @@
+body {
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
 #site_content_wrapper {
+  background-image: url(../assets/landingBG.jpg);
+  background-size: cover;
+  background-position: fixed;
   display: grid;
+  height: 90vh;
+  width: 100vw;
   grid-template-columns: 1fr minmax(50px, 1060px) 1fr;
   grid-template-areas: ". a .";
   #site_content_container {
