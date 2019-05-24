@@ -1,0 +1,15 @@
+.modal_wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(100px,1000px) 1fr;
+    grid-template-areas: 
+    ". modal .";
+    justify-items: center;
+
+
+    .modal_container {
+        grid-area: modal;
+        background: white;
+        margin-top: 5%;
+
+    }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav  from "./nav";
 import "../css/List.scss";
+import "../css/ListModal.scss";
 
 export class List extends Component {
 
@@ -10,6 +11,7 @@ constructor(props) {
     this.state = {
         items: [],
         isLoaded: false,
+        step: 1
     }
 }
 
@@ -27,7 +29,6 @@ componentDidMount() {
             .then(data => {
 
         // SET STATE TO BE EQUAL TO DATA
-            console.log(data);
             this.setState({
                 isLoaded: true,
                 items: data,
@@ -36,12 +37,35 @@ componentDidMount() {
             });
 }
 
+
+// PROCEED TO NEXT STEP
+nextStep = (e) => {
+    const { step } =  this.state;
+    this.setState({
+        step: step + 1
+    });
+
+    console.log(e.target);
+}
+
+// BACK TO PREVIOUS STEP
+prevStep = () => {
+    const { step } =  this.state;
+    this.setState({
+        step: step - 1
+    });
+}
+
   render() {
 
 // SET VARIABLES TO BE EQUAL TO STATE    
-    let {isLoaded, items} = this.state;
+    let {isLoaded, items, step} = this.state;
+    console.log(items);
 
-// CHECK IF DATA IS LOADED IF NOT RETURN LOADING DATA ELSE RETURN LIST OF EMAILS    
+    switch(step) {
+        
+    case 1:
+    // CHECK IF DATA IS LOADED IF NOT RETURN LOADING DATA ELSE RETURN LIST OF EMAILS    
     if(!isLoaded) {
         return <div className="LoadingData">Loading data...</div>
     }else {
@@ -50,14 +74,28 @@ componentDidMount() {
             <Nav />
                 <div className="list_container">
                     <div className="list">
-                    <h1>List of Information</h1>
-                    <p>Click on a email for more details.</p>
+                    <h1>Liste af Information</h1>
+                    <p>Vælg et felt og se indtastet data fra brugere.</p>
                         <ul>
-                            {items.map(item => (
+                            {/* {items.map(item => (
                     
-                                <li><b>Email:</b> {item.email}</li>
-                    
-                            ))};
+                                <li key={this.state.id} onClick={this.nextStep}><b>Email:</b> {item.email}</li>
+                                
+                            ))}; */}
+                            <li className="userName" onClick={this.nextStep}>Brugernavn</li>
+                            <li onClick={this.nextStep}>Password</li>
+                            <li onClick={this.nextStep}>Cpr</li>
+                            <li onClick={this.nextStep}>Fornavn</li>
+                            <li onClick={this.nextStep}>Efternavn</li>
+                            <li onClick={this.nextStep}>Vejnavn</li>
+                            <li onClick={this.nextStep}>Husnummer</li>
+                            <li onClick={this.nextStep}>Postnummer</li>
+                            <li onClick={this.nextStep}>Bynavn</li>
+                            <li onClick={this.nextStep}>Land</li>
+                            <li onClick={this.nextStep}>Telefon</li>
+                            <li onClick={this.nextStep}>Sikkerhedsspørgsmål</li>
+                            <li onClick={this.nextStep}>Svar på Sikkerhedsspørgsmål</li>
+                            <li onClick={this.nextStep}>Max betting</li>
                     
                         </ul>
                     </div>
@@ -65,8 +103,53 @@ componentDidMount() {
             </div>            
             )
     }
+        case 2:
+            return <ListModal
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            items={this.state.items}
+            step={this.state.step}
+            />
+    }
 
   }
 }
 
 export default List
+
+export class ListModal extends Component {
+
+    back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+        
+    }  
+
+  render() {
+
+    // SET VARIABLES TO BE EQUAL TO PROPS    
+    let {items, step} = this.props;
+
+
+    return (
+     <div className="site_content">
+        <Nav />
+            <div className="modal_wrapper">
+                <div className="modal_container">
+                <h1>Details</h1>
+                <button onClick={this.back}>Back</button>
+                <ul>
+                    {items.map(item => (
+                        
+                        <li key={this.props.id}><b>Brugernavn:</b> {item.userName}</li>
+                        
+                    ))}
+                </ul>
+                
+                </div>
+                
+            </div>
+      </div>   
+    )
+  }
+}

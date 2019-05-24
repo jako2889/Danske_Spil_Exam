@@ -2,14 +2,31 @@ import React, { Component } from 'react';
 import FormFooter from "./FormFooter";
 import "../css/FormSucces.scss";
 import Banner from "../assets/Esport_banner-01.jpg";
+import { TweenMax, Back } from "gsap";
 
 export class FormSucces extends Component {
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      x: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+  }
+
   render() {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
     return (
 
-      <div className="succes_site_wrapper">
+      <div className="succes_site_wrapper" ref={div => (this.myElement = div)}>
           
           <img className="succesBanner" src={Banner} alt="Banner"></img>
 
