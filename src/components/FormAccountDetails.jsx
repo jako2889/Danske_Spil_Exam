@@ -22,11 +22,26 @@ export class FormAccountDetails extends Component {
 
     continue = e => {
         e.preventDefault();
-        this.props.nextStep();
+        console.log("validate");
+            if((this.props.values.userName === "" && this.props.values.password === "")) {
+
+                
+                console.log("ERROR");
+
+
+            }else {
+                this.props.nextStep();
+            }
+
+
+          //  { (this.state.values.userName === "" && this.state.values.password === "")? "" : console.log("ERROR") }
+        
+        
     }
     render() {
         // Make values a variable to destruct and just use the variable instead of props
-        const { values, handleChange } = this.props;
+        const { values, handleChange, formErrors } = this.props;
+        console.log(formErrors);
 
         return (
             
@@ -39,40 +54,51 @@ export class FormAccountDetails extends Component {
                     </div>
                 
                 <div className="inputStyle">
-                <input type="email" placeholder="Email"
+                <input name="email" type="email" placeholder="Email"
                  onChange={handleChange("email")}
                  defaultValue={values.email}
                  required
                  ></input> 
                 <label>Email</label>
-                <div className="helpText">Required</div>
+                {formErrors.email.length > 0 && (
+                    <span className="errorMessage">{formErrors.email}</span>
+                )}
                  </div>
 
                 <div className="inputStyle">
-                <input type="text" placeholder="Brugernavn"
+                <input name="userName" type="text" placeholder="Brugernavn"
                  onChange={handleChange("userName")}
                  defaultValue={values.userName}
                  required
                  ></input> 
                 <label>Brugernavn</label> 
+                {formErrors.userName.length > 0 && (
+                    <span className="errorMessage">{formErrors.userName}</span>
+                )}
                 </div>
 
                 <div className="inputStyle">
-                <input type="password" placeholder="Adgangskode"
+                <input name="password" type="password" placeholder="Adgangskode"
                  onChange={handleChange("password")}
                  defaultValue={values.password}
                  required
                  ></input> 
                  <label>Adgangskode</label> 
+                 {formErrors.password.length > 0 && (
+                    <span className="errorMessage">{formErrors.password}</span>
+                )}
                  </div>
 
                 <div className="inputStyle">
-                <input type="password" placeholder="Indtast adgangskode igen"
+                <input name="confirmPassword" type="password" placeholder="Indtast adgangskode igen"
                  onChange={handleChange("confirmPassword")}
                  defaultValue={values.confirmPassword}
                  required
                  ></input> 
                  <label>Indtast adgangskode igen</label>
+                 {formErrors.confirmPassword.length > 0 && (
+                    <span className="errorMessage">{formErrors.confirmPassword}</span>
+                )}
                  </div>      
                 <button type="submit" onClick={this.continue}>Næste</button>
 

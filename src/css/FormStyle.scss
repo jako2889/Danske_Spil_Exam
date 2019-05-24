@@ -70,14 +70,12 @@ form {
         margin: 45px;
         width: 50%;
 
-    .helpText {
+    .errorMessage {
+        font-weight: bold;
         position: absolute;
-        width: 100%;
-        top: 25px;
         left: 0;
-        opacity: 0;
-        color: #c50005;
-        transition: .5s;
+        top: 25px;
+            
     }
 
 
