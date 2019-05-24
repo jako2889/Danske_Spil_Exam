@@ -22,6 +22,7 @@ export class FormSecurityDetails extends Component {
 
     continue = e => {
         e.preventDefault();
+        this.props.handleSubmitSecurity(e);
         this.props.nextStep();
     }
     back = e => {

@@ -5,16 +5,6 @@ import FormSecurityDetails from "./FormSecurityDetails";
 import FormNemID from "./FormNemID";
 import FormSucces from "./FormSucces";
 
-// Validating inputs
-const formValid = formErrors => {
-    let valid = true;
-
-    Object.values(formErrors).forEach(value => {
-        value.length > 0 && (valid = false);
-    });
-    
-    return valid;
-}
 
 export class FormBeginFlow extends Component {
     state = {
@@ -56,7 +46,8 @@ export class FormBeginFlow extends Component {
     }
 
     // PROCEED TO NEXT STEP
-    nextStep = () => {
+    nextStep = (e) => {
+        e.preventDefault();
         const { step } =  this.state;
         this.setState({
             step: step + 1
@@ -70,17 +61,27 @@ export class FormBeginFlow extends Component {
             step: step - 1
         });
     }
+    currentStep = () => {
+        const { step } =  this.state;
+        this.setState({
+            step: step
+        });
+    }
 
-    // HANDLE FIELDS INPUT CHANGE
     handleChange = input => e => {
+// HANDLE FIELDS INPUT CHANGE   
         this.setState({[input]: e.target.value});
 
+
+//FOR EACH INPUT MAKE VALIDATION CHECK WITH SWITCH SYNC WITH NAME ATTRIBUTE IN INPUT
         const {name, value} = e.target;
+        //MAKE VARIALBE THAT TAKES EMPTY ARRAY FORM ERROR VALUES FROM STATE
         let formErrors = this.state.formErrors;
 
         console.log("Name: ", name);
         console.log("value: ", value);
 
+        //EACH CASE SETS EACH VALUE FROM FORMERROR TO SHOW AN ERROR MESSAGE IF CONDITIONS IS MET
         switch (name) {
             case "email":
                 formErrors.email =
@@ -162,13 +163,53 @@ export class FormBeginFlow extends Component {
         }
 
     }
-    handleSubmit = e => {
+    handleSubmitAccount = e => {
         e.preventDefault();
-        if(formValid(this.state.formErrors)) {
-            console.log('Submitting', this.state.values);
-        }else {
-            console.error("Form invalid - display error message");
-        }
+
+        console.log(e);
+        let {email, userName, password, confirmPassword} = this.state;
+        let accountValues = [email, userName, password, confirmPassword];
+        console.log("This is accountvalues: ",accountValues);
+
+        //MAKE VARIALBE THAT ITERATE WITH MAP THROUGH ACCVALUES AND SETS VALUE TO TRUE IF STRING IS EMPTY
+        let check = accountValues.map((value => {
+            return "" === value && true;
+          }));
+
+        console.log("STRING VALUE IS: ",check);
+        //MAP THROUGH CHECK AND CLEAR FORM
+        check.map((c => {
+            if(c === true) {
+                console.log("ERROR IN INPUT");
+                //CALL CURRENT STEP
+                this.currentStep(e);
+
+
+            }else {
+                console.log("NO ERRORS IN INPUT");
+                //CALL NEXT STEP
+                this.nextStep(e);
+            }
+        }));
+
+    }
+    handleSubmitPersonal = e => {
+        e.preventDefault();
+
+        console.log(e);
+        let {cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone} = this.state;
+        let personalValues = {cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone};
+        console.log("This is personalValues: ",personalValues);
+
+    }
+    handleSubmitSecurity = e => {
+        e.preventDefault();
+
+        console.log(e);
+        let {securityQuestion, securityAnswer, maxBetting} = this.state;
+        let securityValues = {securityQuestion, securityAnswer, maxBetting};
+        console.log("This is securityValues: ",securityValues);
+
     }
 
 
@@ -186,6 +227,7 @@ export class FormBeginFlow extends Component {
                     values={values}
                     step={this.state.step}
                     formErrors={this.state.formErrors}
+                    handleSubmitAccount={this.handleSubmitAccount}
                     />
                 )
             case 2:
@@ -196,6 +238,7 @@ export class FormBeginFlow extends Component {
                 values={values}
                 step={this.state.step}
                 formErrors={this.state.formErrors}
+                handleSubmitPersonal={this.handleSubmitPersonal}
                 />
             case 3:
                 return <FormSecurityDetails
@@ -205,6 +248,8 @@ export class FormBeginFlow extends Component {
                 values={values}
                 step={this.state.step}
                 formErrors={this.state.formErrors}
+                handleSubmitSecurity={this.handleSubmitSecurity}
+
                 />
             case 4:
                 return <FormNemID
@@ -213,6 +258,7 @@ export class FormBeginFlow extends Component {
                 handleChange={this.handleChange}
                 values={values}
                 step={this.state.step}
+                handleSubmit={this.handleSubmit}
                 />
             case 5:
                 return <FormSucces

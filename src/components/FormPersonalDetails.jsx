@@ -22,6 +22,7 @@ export class FormPersonalDetails extends Component {
 
     continue = e => {
         e.preventDefault();
+        this.props.handleSubmitPersonal(e);
         this.props.nextStep();
     }
     back = e => {

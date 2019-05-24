@@ -23,6 +23,7 @@ export class FormNemID extends Component {
 
     post = e => {
         e.preventDefault();
+  
 
     // MAKE VALUES FROM STATE INTO STRING    
         const postData = JSON.stringify(this.props.values);

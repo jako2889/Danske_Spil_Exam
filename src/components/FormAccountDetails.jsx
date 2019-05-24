@@ -23,18 +23,8 @@ export class FormAccountDetails extends Component {
     continue = e => {
         e.preventDefault();
         console.log("validate");
-            if((this.props.values.userName === "" && this.props.values.password === "")) {
+        this.props.handleSubmitAccount(e);
 
-                
-                console.log("ERROR");
-
-
-            }else {
-                this.props.nextStep();
-            }
-
-
-          //  { (this.state.values.userName === "" && this.state.values.password === "")? "" : console.log("ERROR") }
         
         
     }
