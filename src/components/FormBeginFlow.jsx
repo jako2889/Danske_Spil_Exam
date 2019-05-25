@@ -4,6 +4,7 @@ import FormPersonalDetails from "./FormPersonalDetails";
 import FormSecurityDetails from "./FormSecurityDetails";
 import FormNemID from "./FormNemID";
 import FormSucces from "./FormSucces";
+import Errorbox from "./Errorbox";
 
 
 export class FormBeginFlow extends Component {
@@ -42,7 +43,8 @@ export class FormBeginFlow extends Component {
             securityQuestion: "",
             securityAnswer: "",
             maxBetting: ""
-        }
+        },
+        nextError: false
     }
 
     // PROCEED TO NEXT STEP
@@ -85,52 +87,52 @@ export class FormBeginFlow extends Component {
         switch (name) {
             case "email":
                 formErrors.email =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Din email skal vi bruge, så du kan modtage vinderbeskeder, når du vinder i spil."
                 : "";
                 break;
             case "userName":
                 formErrors.userName =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 6 && value.length > 0 ? "Dit brugernavn skal være mere end 6 bogstaver langt."
                 : "";
                 break;
             case "password":
                 formErrors.password =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 6 && value.length > 0 ? "Din adgangskode skal være mere end 6 bogstaver langt."
                 : "";
                 break;
             case "confirmPassword":
                 formErrors.confirmPassword =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 6 && value.length > 0 ? "Din adgangskode skal være mere end 6 bogstaver langt."
                 : "";
                 break;
             case "cpr":
                 formErrors.cpr =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 10 && value.length > 0 ? "Vi skal bruge dit cpr-nummer for at sikre os, at du er over 18 år."
                 : "";
                 break;
             case "firstName":
                 formErrors.firstName =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Indtast dit fulde fornavn. Husk eventuelle mellemnavne."
                 : "";
                 break;
             case "lastName":
                 formErrors.lastName =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Indtast dit fulde efternavn."
                 : "";
                 break;
             case "streetName":
                 formErrors.streetName =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Indtast navnet på vejen du bor på."
                 : "";
                 break;
             case "postNumber":
                 formErrors.postNumber =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Indtast postnr. du bor i."
                 : "";
                 break;
             case "city":
                 formErrors.city =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Indtast navnet på din by."
                 : "";
                 break;
             case "country":
@@ -140,7 +142,7 @@ export class FormBeginFlow extends Component {
                 break;
             case "phone":
                 formErrors.phone =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Dit telefonnummer skal vi bruge til fx at sende vinderbeskeder."
                 : "";
                 break;
             case "securityQuestion":
@@ -150,7 +152,7 @@ export class FormBeginFlow extends Component {
                 break;
             case "securityAnswer":
                 formErrors.securityAnswer =
-                value.length < 3 && value.length > 0 ? "More than zero characters required"
+                value.length < 3 && value.length > 0 ? "Vælg et svar der passer til dit spørgsmål overfor."
                 : "";
                 break;
             case "maxBetting":
@@ -185,14 +187,17 @@ export class FormBeginFlow extends Component {
         console.log("IS THERE AN ERROR IN ANY INPUT?",realCheck);
         if(realCheck === true) {
                 console.log("ERROR IN INPUT");
+                
                  //CALL CURRENT STEP
                  this.currentStep(e);
                  //ALERT TEMPORARY
-                 alert("MISSING INPUT (DESIGN MESSAGE JAKOB)");
+                 this.setState({nextError: true});
+                 
         }else {
                 console.log("NO ERRORS IN INPUT");
                 //CALL NEXT STEP
                 this.nextStep(e);
+                this.setState({nextError: false});
         }
 
     }
@@ -281,6 +286,7 @@ export class FormBeginFlow extends Component {
                     step={this.state.step}
                     formErrors={this.state.formErrors}
                     handleSubmitAccount={this.handleSubmitAccount}
+                    nextError={this.state.nextError}
                     />
                 )
             case 2:

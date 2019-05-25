@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormHeader from "./FormHeader";
 import "../css/FormStyle.scss";
 import { TweenMax, Back } from "gsap";
+import ErrorBox from "./Errorbox";
 
 export class FormAccountDetails extends Component {
     constructor(props) {
@@ -32,6 +33,27 @@ export class FormAccountDetails extends Component {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange, formErrors } = this.props;
         console.log(formErrors);
+        let nextError = this.props.nextError;
+        console.log(nextError);
+        let errorBox;
+
+        const errorTrue = {
+            opacity: 1
+          };
+        const errorFalse = {
+            opacity: 0
+          };
+
+        if (nextError === true) {
+            console.log(errorTrue);
+            console.log(errorBox);
+            // VIRKER IKKE HELT - HVIS MAN RETURNER FÅR MAN KUN ERRORBOX ISTEDET FOR HELE FORM_WRAPPER - FIND LØSNING
+            errorBox = <ErrorBox style={errorTrue} />;
+          } else {
+            console.log(errorFalse);
+            console.log(errorBox);
+            errorBox = <ErrorBox style={errorFalse}/>;
+          }
 
         return (
             

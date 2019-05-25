@@ -1,0 +1,28 @@
+.errorbox_wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 0px;
+    color: white;
+    float: right;
+    opacity: 0;
+
+  .errorbox_con {
+    position: absolute;
+    width: 300px;
+    left: 40px;
+    top: -40px;
+    padding: 10px;
+    box-shadow: none;
+    padding: 20px;
+    background: linear-gradient(180deg, #ffc425 0%, #bf7300 100%);
+    border-radius: 5px;
+
+    p {
+        font-size: 1.5em;
+    }
+  }
+}
