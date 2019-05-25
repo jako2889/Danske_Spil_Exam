@@ -2,10 +2,28 @@ import React, { Component } from 'react';
 import FormHeader from "./FormHeader";
 import "../css/FormStyle.scss";
 import NemidImage from "../assets/nemid.svg";
+import { TweenMax, Back } from "gsap";
 
 export class FormNemID extends Component {
+    constructor(props) {
+        super(props);
+        // reference to the DOM node
+        this.myElement = null;
+        // reference to the animation
+        this.myTween = null;
+      }
+    
+      componentDidMount() {
+        // use the node ref to create the animation
+        this.myTween = TweenMax.from(this.myElement, 1, {
+          x: 1100,
+          ease: Back.easeOut.config(1.0002)
+        });
+      }
+
     post = e => {
         e.preventDefault();
+  
 
     // MAKE VALUES FROM STATE INTO STRING    
         const postData = JSON.stringify(this.props.values);
@@ -30,7 +48,7 @@ export class FormNemID extends Component {
      });
 
     // GO TO NEXT STEP 
-        this.props.nextStep();
+        this.props.nextStep(e);
     }
     back = e => {
         e.preventDefault();
@@ -41,7 +59,7 @@ export class FormNemID extends Component {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange } = this.props;
         return (
-            <div className="form_wrapper">
+            <div className="form_wrapper" ref={div => (this.myElement = div)}>
             <FormHeader step={this.props.step} />
                 <form>
                     <div className="formIntroText">

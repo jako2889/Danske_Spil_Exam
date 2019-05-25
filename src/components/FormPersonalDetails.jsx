@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
 import FormHeader from "./FormHeader";
 import "../css/FormStyle.scss";
+import { TweenMax, Back } from "gsap";
 
 export class FormPersonalDetails extends Component {
+    constructor(props) {
+        super(props);
+        // reference to the DOM node
+        this.myElement = null;
+        // reference to the animation
+        this.myTween = null;
+      }
+    
+      componentDidMount() {
+        // use the node ref to create the animation
+        this.myTween = TweenMax.from(this.myElement, 1, {
+          x: 1100,
+          ease: Back.easeOut.config(1.0002)
+        });
+      }
+
     continue = e => {
         e.preventDefault();
-        this.props.nextStep();
+        this.props.handleSubmitPersonal(e);
     }
     back = e => {
         e.preventDefault();
@@ -13,9 +30,11 @@ export class FormPersonalDetails extends Component {
     }
     render() {
         // Make values a variable to destruct and just use the variable instead of props
-        const { values, handleChange } = this.props;
+        const { values, handleChange, formErrors } = this.props;
+
+        console.log(formErrors);
         return (
-            <div className="form_wrapper">
+            <div className="form_wrapper" ref={div => (this.myElement = div)}>
             <FormHeader step={this.props.step} />
                 <form>
                     <div className="formIntroText">
@@ -24,71 +43,91 @@ export class FormPersonalDetails extends Component {
                     </div>
                     
                     <div className="inputStyle">
-                    <input type="text" placeholder="Cpr-nummer"
+                    <input name="cpr" type="text" placeholder="Cpr-nummer"
                      onChange={handleChange("cpr")}
                      defaultValue={values.cpr}
                      required
                      ></input> 
                     <label>Cpr-nummer</label>
-                    <div className="helpText">Required</div>
-                     </div>
+                    {formErrors.cpr.length > 0 && (
+                    <span className="errorMessage">{formErrors.cpr}</span>
+                )}
+                </div>
     
                     <div className="inputStyle">
-                    <input type="text" placeholder="Fornavn"
+                    <input name="firstName" type="text" placeholder="Fornavn"
                      onChange={handleChange("firstName")}
                      defaultValue={values.firstName}
                      required
                      ></input> 
                     <label>Fornavn</label> 
+                    {formErrors.firstName.length > 0 && (
+                    <span className="errorMessage">{formErrors.firstName}</span>
+                )}
                     </div>
     
                     <div className="inputStyle">
-                    <input type="text" placeholder="Efternavn"
+                    <input name="lastName" type="text" placeholder="Efternavn"
                      onChange={handleChange("lastName")}
                      defaultValue={values.lastName}
                      required
                      ></input> 
                      <label>Efternavn</label> 
+                     {formErrors.lastName.length > 0 && (
+                    <span className="errorMessage">{formErrors.lastName}</span>
+                )}
                      </div>
     
                     <div className="doubleInputfield1">
                         <div className="inputStyle">
-                            <input type="text" placeholder="Vejnavn"
+                            <input name="streetName" type="text" placeholder="Vejnavn"
                             onChange={handleChange("streetName")}
                             defaultValue={values.streetName}
                             required
                             ></input> 
                             <label>Vejnavn</label>
+                            {formErrors.streetName.length > 0 && (
+                    <span className="errorMessage">{formErrors.streetName}</span>
+                )}
                         </div>   
                         <div className="inputStyle">
-                            <input type="text" placeholder="Husnummer"
+                            <input name="houseNumber" type="text" placeholder="Husnummer"
                             onChange={handleChange("houseNumber")}
                             defaultValue={values.houseNumber}
                             required
                             ></input> 
                             <label>Husnummer</label>
+                            {formErrors.houseNumber.length > 0 && (
+                    <span className="errorMessage">{formErrors.houseNumber}</span>
+                )}
                         </div>   
                      </div> 
 
                      <div className="doubleInputfield2">
                      <div className="inputStyle">
-                            <input type="text" placeholder="Bynavn"
+                            <input name="city" type="text" placeholder="Bynavn"
                             onChange={handleChange("city")}
                             defaultValue={values.city}
                             required
                             ></input> 
                             <label>Bynavn</label>
+                            {formErrors.city.length > 0 && (
+                    <span className="errorMessage">{formErrors.city}</span>
+                )}
                         </div>  
                         <div className="inputStyle">
-                            <input type="text" placeholder="Postnummer"
+                            <input name="postNumber" type="text" placeholder="Postnummer"
                             onChange={handleChange("postNumber")}
                             defaultValue={values.postNumber}
                             required
                             ></input> 
                             <label>Postnummer</label>
+                            {formErrors.postNumber.length > 0 && (
+                    <span className="errorMessage">{formErrors.postNumber}</span>
+                )}
                         </div>    
                      </div> 
-                     <select className="countrySelect" onChange={handleChange("country")}
+                     <select name="country" className="countrySelect" onChange={handleChange("country")}
                     defaultValue={values.country}>
                             <option value="">Please select</option>
                             <option value="Afghanistan">Afghanistan</option>
@@ -208,14 +247,20 @@ export class FormPersonalDetails extends Component {
                             <option value="Venezuela">Venezuela</option>
                             <option value="Vietnam">Vietnam</option>
                     </select>
+                    {formErrors.country.length > 0 && (
+                    <span className="errorMessage">{formErrors.country}</span>
+                )}
 
                     <div className="inputStyle">
-                    <input type="text" placeholder="Telefonnummer"
+                    <input name="phone" type="text" placeholder="Telefonnummer"
                      onChange={handleChange("phone")}
                      defaultValue={values.phone}
                      required
                      ></input> 
                     <label>Telefonnummer</label> 
+                    {formErrors.phone.length > 0 && (
+                    <span className="errorMessage">{formErrors.phone}</span>
+                )}
                     </div>
 
                     <div className="FormDoubleButtons">
