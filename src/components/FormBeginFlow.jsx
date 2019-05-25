@@ -187,6 +187,8 @@ export class FormBeginFlow extends Component {
                 console.log("ERROR IN INPUT");
                  //CALL CURRENT STEP
                  this.currentStep(e);
+                 //ALERT TEMPORARY
+                 alert("MISSING INPUT (DESIGN MESSAGE JAKOB)");
         }else {
                 console.log("NO ERRORS IN INPUT");
                 //CALL NEXT STEP
@@ -219,6 +221,8 @@ export class FormBeginFlow extends Component {
                         console.log("ERROR IN INPUT");
                          //CALL CURRENT STEP
                          this.currentStep(e);
+                        //ALERT TEMPORARY
+                        alert("MISSING INPUT (DESIGN MESSAGE JAKOB)");
                 }else {
                         console.log("NO ERRORS IN INPUT");
                         //CALL NEXT STEP
@@ -251,6 +255,8 @@ export class FormBeginFlow extends Component {
                                 console.log("ERROR IN INPUT");
                                  //CALL CURRENT STEP
                                  this.currentStep(e);
+                                 //ALERT TEMPORARY
+                                 alert("MISSING INPUT (DESIGN MESSAGE JAKOB)");
                         }else {
                                 console.log("NO ERRORS IN INPUT");
                                 //CALL NEXT STEP
