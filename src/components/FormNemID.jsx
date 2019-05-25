@@ -48,7 +48,7 @@ export class FormNemID extends Component {
      });
 
     // GO TO NEXT STEP 
-        this.props.nextStep();
+        this.props.nextStep(e);
     }
     back = e => {
         e.preventDefault();

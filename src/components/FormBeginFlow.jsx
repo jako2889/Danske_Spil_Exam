@@ -182,7 +182,7 @@ export class FormBeginFlow extends Component {
             return item === true;
         });
 
-        console.log(realCheck);
+        console.log("IS THERE AN ERROR IN ANY INPUT?",realCheck);
         if(realCheck === true) {
                 console.log("ERROR IN INPUT");
                  //CALL CURRENT STEP
@@ -198,18 +198,64 @@ export class FormBeginFlow extends Component {
         e.preventDefault();
 
         console.log(e);
+        // VALUES SHOULD BE AN ARRAY
         let {cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone} = this.state;
-        let personalValues = {cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone};
+        let personalValues = [cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone];
         console.log("This is personalValues: ",personalValues);
+
+                //MAKE VARIALBE THAT ITERATE WITH MAP THROUGH ACCVALUES AND SETS VALUE TO TRUE IF STRING IS EMPTY
+                let check = personalValues.map((value => {
+                    return "" === value && true;
+                  }));
+        
+                console.log("STRING VALUE IS: ",check);
+                //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
+                let realCheck = check.some(function (item) {
+                    return item === true;
+                });
+        
+                console.log("IS THERE AN ERROR IN ANY INPUT?",realCheck);
+                if(realCheck === true) {
+                        console.log("ERROR IN INPUT");
+                         //CALL CURRENT STEP
+                         this.currentStep(e);
+                }else {
+                        console.log("NO ERRORS IN INPUT");
+                        //CALL NEXT STEP
+                        this.nextStep(e);
+                }
 
     }
     handleSubmitSecurity = e => {
         e.preventDefault();
 
         console.log(e);
+        // VALUES SHOULD BE AN ARRAY
         let {securityQuestion, securityAnswer, maxBetting} = this.state;
-        let securityValues = {securityQuestion, securityAnswer, maxBetting};
+        let securityValues = [securityQuestion, securityAnswer, maxBetting];
         console.log("This is securityValues: ",securityValues);
+
+                        //MAKE VARIALBE THAT ITERATE WITH MAP THROUGH ACCVALUES AND SETS VALUE TO TRUE IF STRING IS EMPTY
+                        let check = securityValues.map((value => {
+                            return "" === value && true;
+                          }));
+                
+                        console.log("STRING VALUE IS: ",check);
+                        //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
+                        let realCheck = check.some(function (item) {
+                            return item === true;
+                        });
+                
+                        console.log("IS THERE AN ERROR IN ANY INPUT?",realCheck);
+                        if(realCheck === true) {
+                                console.log("ERROR IN INPUT");
+                                 //CALL CURRENT STEP
+                                 this.currentStep(e);
+                        }else {
+                                console.log("NO ERRORS IN INPUT");
+                                //CALL NEXT STEP
+                                this.nextStep(e);
+                        }
 
     }
 
