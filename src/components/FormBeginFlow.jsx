@@ -177,20 +177,21 @@ export class FormBeginFlow extends Component {
           }));
 
         console.log("STRING VALUE IS: ",check);
-        //MAP THROUGH CHECK AND CLEAR FORM
-        check.map((c => {
-            if(c === true) {
+        //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
+        let realCheck = check.some(function (item) {
+            return item === true;
+        });
+
+        console.log(realCheck);
+        if(realCheck === true) {
                 console.log("ERROR IN INPUT");
-                //CALL CURRENT STEP
-                this.currentStep(e);
-
-
-            }else {
+                 //CALL CURRENT STEP
+                 this.currentStep(e);
+        }else {
                 console.log("NO ERRORS IN INPUT");
                 //CALL NEXT STEP
                 this.nextStep(e);
-            }
-        }));
+        }
 
     }
     handleSubmitPersonal = e => {
