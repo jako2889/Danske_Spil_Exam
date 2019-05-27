@@ -47,7 +47,7 @@ class LeftColumn extends Component {
     if (this.props.step === 2) {
       ybContent = {
         title: "Søg",
-        info: "<em>Søg efter vædemål, Sportgrene, Turneringer, etc.</em>",
+        info: "Søg efter vædemål, Sportgrene, Turneringer, etc.",
         button: "on"
       };
       yBox = (
@@ -85,7 +85,7 @@ class LeftColumn extends Component {
     if (this.props.step === 4) {
       ybContent = {
         title: "SPORTSGRENE",
-        info: `Click på “SPORTSGRENE"`,
+        info: `Click på <span class="hint">“SPORTSGRENE"</span>`,
         button: "on"
       };
       yBox = (

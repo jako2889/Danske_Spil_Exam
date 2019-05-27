@@ -86,8 +86,7 @@ export class RightColumn extends Component {
     if (this.props.step === 13) {
       ybContent = {
         title: "Sats og vind",
-        info:
-          " Indtast 100kr. For at forsætte. Hvis du vinder, ganger vi dit beløb med det valgte odds. fx 100kr x 2,50 = 250kr. ",
+        info: `Sats <span class="hint">100kr.</span> for at forsætte. Hvis du vinder, ganger vi dit beløb med det valgte odds. fx 100kr x 2,50 = 250kr.`,
         button: "on"
       };
       yBox = (
@@ -107,8 +106,7 @@ export class RightColumn extends Component {
     if (this.props.step === 14) {
       ybContent = {
         title: "Samlet gevinst",
-        info:
-          " Spiller du flere bets på engang kan du se din samlede gevinst her.  Lad os prøve et fiktivt spil på det bet du har lavet. Klik på “Køb spil” og se resultatet af kampen.",
+        info: `Spiller du flere bets på engang kan du se din samlede gevinst her.  Lad os prøve et fiktivt spil på det bet du har lavet. Klik på <span class="hint">“Køb spil”</span> og se resultatet af kampen.`,
         button: "on"
       };
       yBox = (

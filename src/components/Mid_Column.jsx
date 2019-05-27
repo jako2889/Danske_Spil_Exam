@@ -223,7 +223,7 @@ export class Scnd_Column extends Component {
     if (this.props.step === 11) {
       ybContent = {
         title: "Sæt dit væddemål",
-        info: `Klik på odds "1" eller "2" og sæt dit væddemål på den du tror der vinder mellem 
+        info: `Klik på odds <span class="hint">"1"</span>  eller <span class="hint">"2"</span> og sæt dit væddemål på den du tror der vinder mellem 
         Astralis vs Liquid
         
         `,

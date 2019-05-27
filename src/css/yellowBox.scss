@@ -56,7 +56,7 @@
 }
 
 #tips_icon {
-  width: 50px;
+  width: 35px;
   background-color: transparent;
 
   img {
@@ -91,5 +91,18 @@
 #title {
   font-weight: 900;
   font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+#y_txt {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 20px 0px;
+  text-align: left;
+}
+
+.hint {
+  color: #111c30;
+  font-weight: 900;
   text-transform: uppercase;
 }
