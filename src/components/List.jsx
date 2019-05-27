@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav  from "./nav";
 import "../css/List.scss";
-import "../css/ListModal.scss";
 
 export class List extends Component {
 
@@ -37,34 +36,12 @@ componentDidMount() {
             });
 }
 
-
-// PROCEED TO NEXT STEP
-nextStep = (e) => {
-    const { step } =  this.state;
-    this.setState({
-        step: step + 1
-    });
-
-    console.log(e.target);
-}
-
-// BACK TO PREVIOUS STEP
-prevStep = () => {
-    const { step } =  this.state;
-    this.setState({
-        step: step - 1
-    });
-}
-
   render() {
 
 // SET VARIABLES TO BE EQUAL TO STATE    
-    let {isLoaded, items, step} = this.state;
+    let {isLoaded, items} = this.state;
     console.log(items);
 
-    switch(step) {
-        
-    case 1:
     // CHECK IF DATA IS LOADED IF NOT RETURN LOADING DATA ELSE RETURN LIST OF EMAILS    
     if(!isLoaded) {
         return <div className="LoadingData">Loading data...</div>
@@ -74,82 +51,87 @@ prevStep = () => {
             <Nav />
                 <div className="list_container">
                     <div className="list">
-                    <h1>Liste af Information</h1>
-                    <p>Vælg et felt og se indtastet data fra brugere.</p>
-                        <ul>
-                            {/* {items.map(item => (
-                    
-                                <li key={this.state.id} onClick={this.nextStep}><b>Email:</b> {item.email}</li>
-                                
-                            ))}; */}
-                            <li className="userName" onClick={this.nextStep}>Brugernavn</li>
-                            <li onClick={this.nextStep}>Password</li>
-                            <li onClick={this.nextStep}>Cpr</li>
-                            <li onClick={this.nextStep}>Fornavn</li>
-                            <li onClick={this.nextStep}>Efternavn</li>
-                            <li onClick={this.nextStep}>Vejnavn</li>
-                            <li onClick={this.nextStep}>Husnummer</li>
-                            <li onClick={this.nextStep}>Postnummer</li>
-                            <li onClick={this.nextStep}>Bynavn</li>
-                            <li onClick={this.nextStep}>Land</li>
-                            <li onClick={this.nextStep}>Telefon</li>
-                            <li onClick={this.nextStep}>Sikkerhedsspørgsmål</li>
-                            <li onClick={this.nextStep}>Svar på Sikkerhedsspørgsmål</li>
-                            <li onClick={this.nextStep}>Max betting</li>
-                    
-                        </ul>
+                    <h1>Liste af info om brugere</h1>
+                    <p>Hver bruger har en liste af oplysninger, som kan ses herunder.</p>
+                    <div className="users">
+                            {items.map(item => (
+                                <div className="user">
+                                <h3 key={this.state.id}>{item.userName}</h3>
+                                <hr></hr>
+
+                                <div className="user_field">
+                                <p><b>Email:</b></p>    
+                                <p key={this.state.id}>{item.email}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Brugernavn:</b></p>    
+                                <p key={this.state.id}>{item.userName}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Password:</b></p>    
+                                <p key={this.state.id}>{item.password}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Cpr-nummer:</b></p>    
+                                <p key={this.state.id}>{item.cpr}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Fornavn:</b></p>    
+                                <p key={this.state.id}>{item.firstName}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Efternavn:</b></p>    
+                                <p key={this.state.id}>{item.lastName}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Vejnavn:</b></p>    
+                                <p key={this.state.id}>{item.streetName}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Husnummer:</b></p>    
+                                <p key={this.state.id}>{item.houseNumber}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Postnummer:</b></p>    
+                                <p key={this.state.id}>{item.postNumber}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Bynavn:</b></p>    
+                                <p key={this.state.id}>{item.city}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Land:</b></p>    
+                                <p key={this.state.id}>{item.country}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Telefonnummer:</b></p>    
+                                <p key={this.state.id}>{item.phone}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Sikkerhedsspørgsmål:</b></p>    
+                                <p key={this.state.id}>{item.securityQuestion}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Svar på spørgsmål:</b></p>    
+                                <p key={this.state.id}>{item.securityAnswer}</p>
+                                </div>
+                                <div className="user_field">
+                                <p><b>Max betting beløb:</b></p>    
+                                <p key={this.state.id}>{item.maxBetting}</p>
+                                </div>
+
+                                </div>
+                            ))};
+                    </div>        
                     </div>
                 </div>
             </div>            
             )
     }
-        case 2:
-            return <ListModal
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            items={this.state.items}
-            step={this.state.step}
-            />
+
     }
 
   }
-}
 
 export default List
 
-export class ListModal extends Component {
-
-    back = e => {
-        e.preventDefault();
-        this.props.prevStep();
-        
-    }  
-
-  render() {
-
-    // SET VARIABLES TO BE EQUAL TO PROPS    
-    let {items, step} = this.props;
-
-
-    return (
-     <div className="site_content">
-        <Nav />
-            <div className="modal_wrapper">
-                <div className="modal_container">
-                <h1>Details</h1>
-                <button onClick={this.back}>Back</button>
-                <ul>
-                    {items.map(item => (
-                        
-                        <li key={this.props.id}><b>Brugernavn:</b> {item.userName}</li>
-                        
-                    ))}
-                </ul>
-                
-                </div>
-                
-            </div>
-      </div>   
-    )
-  }
-}

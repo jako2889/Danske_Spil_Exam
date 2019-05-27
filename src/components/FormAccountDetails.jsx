@@ -46,12 +46,10 @@ export class FormAccountDetails extends Component {
 
         if (nextError === true) {
             console.log(errorTrue);
-            console.log(errorBox);
             // VIRKER IKKE HELT - HVIS MAN RETURNER FÅR MAN KUN ERRORBOX ISTEDET FOR HELE FORM_WRAPPER - FIND LØSNING
             errorBox = <ErrorBox style={errorTrue} />;
           } else {
             console.log(errorFalse);
-            console.log(errorBox);
             errorBox = <ErrorBox style={errorFalse}/>;
           }
 

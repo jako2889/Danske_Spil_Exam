@@ -24,24 +24,40 @@
             cursor: default;
         }
         p{
-            text-decoration: underline;
             cursor: default;
         }
-        
-        ul {
+        .users {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 5px;
-            padding: 10px;
-        
-        li {
-            list-style: none;
-            padding: 10px;
-            cursor: pointer;
-            background: #111c30;
-            color: white;
-            &:hover {
-                opacity: .8;
+            grid-gap: 10px;
+            
+            .user {
+                padding: 10px;
+                background: #111c30;
+
+            h3 {
+                text-align: center;
+                font-weight: bold;
+                font-size: 1.2em;
+                color: white;
+                text-transform: uppercase;
+            }    
+            
+            .user_field {
+                display: flex;
+                flex-direction: row;
+                padding: 10px;
+                color: white;
+                cursor: default;
+                justify-content: space-between;
+                border-bottom: 1px solid #8080804d;
+
+                p {
+                    margin: 0;
+                }
+                p:nth-child(2) {
+                    text-decoration: none;
+                }
             }
         }
     }
