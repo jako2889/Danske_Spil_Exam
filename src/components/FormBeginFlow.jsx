@@ -4,7 +4,6 @@ import FormPersonalDetails from "./FormPersonalDetails";
 import FormSecurityDetails from "./FormSecurityDetails";
 import FormNemID from "./FormNemID";
 import FormSucces from "./FormSucces";
-import Errorbox from "./Errorbox";
 
 
 export class FormBeginFlow extends Component {
@@ -62,6 +61,8 @@ export class FormBeginFlow extends Component {
         this.setState({
             step: step - 1
         });
+        //CHANGE STATE SO ERROR MESSAGE DOESNT SHOW WHEN GOING BACK TO PREV STEP
+        this.setState({nextError: false});
     }
     currentStep = () => {
         const { step } =  this.state;
@@ -73,6 +74,8 @@ export class FormBeginFlow extends Component {
     handleChange = input => e => {
 // HANDLE FIELDS INPUT CHANGE   
         this.setState({[input]: e.target.value});
+        // CHANGE STATE IF USER TYPES IN INPUT FIELDS "AFTER" TRYING TO CLICK NEXT WHEN NOT FINISHED
+        this.setState({nextError: false});
 
 
 //FOR EACH INPUT MAKE VALIDATION CHECK WITH SWITCH SYNC WITH NAME ATTRIBUTE IN INPUT
@@ -227,11 +230,12 @@ export class FormBeginFlow extends Component {
                          //CALL CURRENT STEP
                          this.currentStep(e);
                         //ALERT TEMPORARY
-                        alert("MISSING INPUT (DESIGN MESSAGE JAKOB)");
+                        this.setState({nextError: true});
                 }else {
                         console.log("NO ERRORS IN INPUT");
                         //CALL NEXT STEP
                         this.nextStep(e);
+                        this.setState({nextError: false});
                 }
 
     }
@@ -261,11 +265,12 @@ export class FormBeginFlow extends Component {
                                  //CALL CURRENT STEP
                                  this.currentStep(e);
                                  //ALERT TEMPORARY
-                                 alert("MISSING INPUT (DESIGN MESSAGE JAKOB)");
+                                 this.setState({nextError: true});
                         }else {
                                 console.log("NO ERRORS IN INPUT");
                                 //CALL NEXT STEP
                                 this.nextStep(e);
+                                this.setState({nextError: false});
                         }
 
     }
@@ -298,6 +303,7 @@ export class FormBeginFlow extends Component {
                 step={this.state.step}
                 formErrors={this.state.formErrors}
                 handleSubmitPersonal={this.handleSubmitPersonal}
+                nextError={this.state.nextError}
                 />
             case 3:
                 return <FormSecurityDetails
@@ -308,6 +314,7 @@ export class FormBeginFlow extends Component {
                 step={this.state.step}
                 formErrors={this.state.formErrors}
                 handleSubmitSecurity={this.handleSubmitSecurity}
+                nextError={this.state.nextError}
 
                 />
             case 4:

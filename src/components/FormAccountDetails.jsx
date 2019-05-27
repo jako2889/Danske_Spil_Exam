@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FormHeader from "./FormHeader";
 import "../css/FormStyle.scss";
 import { TweenMax, Back } from "gsap";
-import ErrorBox from "./Errorbox";
 
 export class FormAccountDetails extends Component {
     constructor(props) {
@@ -24,9 +23,7 @@ export class FormAccountDetails extends Component {
     continue = e => {
         e.preventDefault();
         console.log("validate");
-        this.props.handleSubmitAccount(e);
-
-        
+        this.props.handleSubmitAccount(e);  
         
     }
     render() {
@@ -35,23 +32,22 @@ export class FormAccountDetails extends Component {
         console.log(formErrors);
         let nextError = this.props.nextError;
         console.log(nextError);
-        let errorBox;
+        let buttonStyle = {};
 
-        const errorTrue = {
-            opacity: 1
-          };
-        const errorFalse = {
-            opacity: 0
-          };
+        if(nextError === true) {
+            buttonStyle = {
+                background: "#80808087",
+                borderColor: "#80808087",
+                transition: "1s"
+            };
+        }else {
+            buttonStyle = {
+                background: "#feb700",
+                borderColor: "#feb700",
+                transition: "1s"
+            };
+        }
 
-        if (nextError === true) {
-            console.log(errorTrue);
-            // VIRKER IKKE HELT - HVIS MAN RETURNER FÅR MAN KUN ERRORBOX ISTEDET FOR HELE FORM_WRAPPER - FIND LØSNING
-            errorBox = <ErrorBox style={errorTrue} />;
-          } else {
-            console.log(errorFalse);
-            errorBox = <ErrorBox style={errorFalse}/>;
-          }
 
         return (
             
@@ -109,8 +105,9 @@ export class FormAccountDetails extends Component {
                  {formErrors.confirmPassword.length > 0 && (
                     <span className="errorMessage">{formErrors.confirmPassword}</span>
                 )}
-                 </div>      
-                <button type="submit" onClick={this.continue}>Næste</button>
+                 </div>
+                {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}       
+                <button style={buttonStyle} type="submit" onClick={this.continue}>Næste</button>
 
             </form>
         </div>
