@@ -80,7 +80,7 @@ export class YellowBox extends Component {
               <img src={joystick} alt="" />
             </div>
           </div>
-          <div id="y_txt">{ybC.info}</div>
+          <div id="y_txt" dangerouslySetInnerHTML={{__html: ybC.info}}></div>
           {next}
         </div>
       </div>

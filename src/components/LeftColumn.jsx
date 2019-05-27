@@ -47,7 +47,7 @@ class LeftColumn extends Component {
     if (this.props.step === 2) {
       ybContent = {
         title: "Søg",
-        info: "Søg efter vædemål, Sportgrene, Turneringer, etc.",
+        info: "<em>Søg efter vædemål, Sportgrene, Turneringer, etc.</em>",
         button: "on"
       };
       yBox = (
