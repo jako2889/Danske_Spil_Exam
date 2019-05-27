@@ -31,6 +31,23 @@ export class FormPersonalDetails extends Component {
     render() {
         // Make values a variable to destruct and just use the variable instead of props
         const { values, handleChange, formErrors } = this.props;
+        let nextError = this.props.nextError;
+        console.log(nextError);
+        let buttonStyle = {};
+
+        if(nextError === true) {
+            buttonStyle = {
+                background: "#80808087",
+                borderColor: "#80808087",
+                transition: "1s"
+            };
+        }else {
+            buttonStyle = {
+                background: "#feb700",
+                borderColor: "#feb700",
+                transition: "1s"
+            };
+        }
 
         console.log(formErrors);
         return (
@@ -264,9 +281,10 @@ export class FormPersonalDetails extends Component {
                     </div>
 
                     <div className="FormDoubleButtons">
-                    <button onClick={this.continue}>Næste</button>
+                    <button style={buttonStyle} onClick={this.continue}>Næste</button>
                     <button onClick={this.back}>Back</button>
                     </div> 
+                    {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}   
                 </form>
             </div>
 

@@ -20,7 +20,17 @@ form {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 5%;
 
+    .errorText {
+        position: absolute;
+        left: 40%;
+        bottom: 0;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: red;
+    }
     select {
         margin: 45px;
         transition: .5s;
@@ -178,6 +188,7 @@ form {
 
     button {
     background-color: #feb700;
+    outline: none;
     color: #323232;
     font-weight: 700;
     font-size: 18px;
