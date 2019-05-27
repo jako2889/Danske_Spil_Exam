@@ -9,7 +9,7 @@ import "../css/mainGrid.scss";
 
 export class site extends Component {
   state = {
-    step: 5,
+    step: 1,
     Kampvinder: ""
   };
 
