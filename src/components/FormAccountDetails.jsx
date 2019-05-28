@@ -34,12 +34,13 @@ export class FormAccountDetails extends Component {
         let userEmailError = this.props.userEmailError;
         console.log(nextError);
         let buttonStyle = {};
+        let emailInputStyle = {};
 
         if(nextError === true) {
             buttonStyle = {
                 background: "#80808087",
                 borderColor: "#80808087",
-                transition: "1s"
+                transition: ".5s"
             };
         }else {
             buttonStyle = {
@@ -49,16 +50,16 @@ export class FormAccountDetails extends Component {
             };
         }
         if(userEmailError === true) {
-            buttonStyle = {
-                background: "#80808087",
-                borderColor: "#80808087",
+            emailInputStyle = {
+                borderColor: "#c50005",
+                color: "#c50005",
                 transition: "1s"
             };
         }else {
-            buttonStyle = {
-                background: "#feb700",
-                borderColor: "#feb700",
-                transition: "1s"
+            emailInputStyle = {
+                borderColor: "#535353",
+                color: "",
+                transition: ".5s"
             };
         }
 
@@ -74,7 +75,7 @@ export class FormAccountDetails extends Component {
                     </div>
                 
                 <div className="inputStyle">
-                <input name="email" type="email" placeholder="Email"
+                <input style={emailInputStyle} name="email" type="email" placeholder="Email"
                  onChange={handleChange("email")}
                  defaultValue={values.email}
                  required
