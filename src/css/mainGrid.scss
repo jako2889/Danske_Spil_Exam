@@ -1,15 +1,14 @@
 body {
-  overflow: hidden;
-  overflow-x: hidden;
 }
 
 #site_content_wrapper {
   background-image: url(../assets/landingBG.jpg);
   background-size: cover;
-  background-position: fixed;
+  background-attachment: fixed;
+  margin-top: 10px;
   display: grid;
-  height: 90vh;
-  width: 100vw;
+  height: 100vh;
+  width: 100%;
   grid-template-columns: 1fr minmax(50px, 1060px) 1fr;
   grid-template-areas: ". a .";
   #site_content_container {
@@ -17,8 +16,8 @@ body {
     display: grid;
     grid-template-columns: 220px 550px 250px;
     grid-template-areas: "v m h";
-    margin-top: 30px;
     grid-gap: 20px;
+    margin-top: 91px;
   }
 }
 

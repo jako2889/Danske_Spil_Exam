@@ -4,6 +4,8 @@
   grid-template-areas: ". n .";
   background-color: #111c30;
   z-index: -1;
+  margin-top: 0px;
+  top: 0px;
 }
 
 .row_1_con {
@@ -97,4 +99,10 @@ img {
 .data_list:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.nav_con {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
