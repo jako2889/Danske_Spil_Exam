@@ -19,7 +19,7 @@ export class GamesList extends Component {
     if (this.props.step === 7) {
       ybContent = {
         title: "TURNERINGER",
-        info: `Under hver spil katagori finder du de forskellige turneringer du kan spille på. Click på <span class="hint">“ESL Pro League”</span> `,
+        info: `Under hver spil katagori finder du de forskellige turneringer du kan spille på. Klik på <span class="hint">“ESL Pro League”</span> `,
         button: "on"
       };
       yBox = <YellowBox nextStep={this.props} ybContent={ybContent} />;

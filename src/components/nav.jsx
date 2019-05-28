@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../css/mediaQ.scss";
 import "../css/nav.scss";
 import logo_1 from "../assets/logo_1.svg";
 import logo_2 from "../assets/logo_2.svg";
@@ -8,10 +9,10 @@ export class Nav extends Component {
   render() {
     return (
       <div className="nav_con">
-        <header>
+        <header className="nav_con_con">
           <div className="row_1">
             <div className="row_1_con">
-              <div>
+              <div className="row_1_con_con">
                 <div className="Logo_con">
                   <div className="logo">
                     <img src={logo_1} alt="logo" />
@@ -31,7 +32,7 @@ export class Nav extends Component {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="col_2_wrap">
                 <div className="col_2">
                   <a href="#">Log Ind</a>
                   <a href="#">Opret konto</a>
@@ -97,6 +98,12 @@ export class Nav extends Component {
                 </div>
               </div>
               <div />
+            </div>
+          </div>
+
+          <div className="nav_ind">
+            <div className="ni_logo">
+              <img src={logo_1} alt="logo" />
             </div>
           </div>
         </header>

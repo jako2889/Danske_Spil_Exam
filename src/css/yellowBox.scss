@@ -12,7 +12,7 @@
   align-self: flex-end;
   grid-column: 5/5;
   transform: scale(0); // transform-origin: center left;
-
+  z-index: 1000;
   #yb_content_con {
     position: absolute;
     width: 300px;

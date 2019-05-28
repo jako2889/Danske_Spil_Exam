@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/Step1.scss";
+
 // import Step1Image from "../assets/step1_image.svg";
 import ds_logo from "../assets/ds_logo.svg";
 export class Step1 extends Component {
@@ -24,7 +25,7 @@ export class Step1 extends Component {
               spil.
             </div>
             <div className="lp_l2">
-              Gennemfør vores hurtige totutial og vind en velkomst bonus på
+              Gennemfør vores hurtige tutorial og vind en velkomst bonus på
               <span className="lp_span"> 250kr.</span>
             </div>
           </div>
@@ -35,7 +36,7 @@ export class Step1 extends Component {
                 onClick={this.continue}
                 style={{ cursor: "pointer" }}
               >
-                Begin
+                Start
               </button>
             </div>
           </div>

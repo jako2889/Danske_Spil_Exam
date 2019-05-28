@@ -6,6 +6,7 @@ import RightCol from "./RightColumn.jsx";
 import BlackCover from "./BlackCover.jsx";
 import TheGame from "./TheGame.jsx";
 import "../css/mainGrid.scss";
+import "../css/mediaQ.scss";
 
 export class site extends Component {
   state = {
@@ -55,6 +56,30 @@ export class site extends Component {
 
   render() {
     const { step } = this.state;
+
+    let leftCol;
+    let midCol;
+    let rColm;
+    if (window.innerWidth > 1040) {
+      console.log("Latptop");
+      rColm = (
+        <RightCol
+          nextStep={this.nextStep}
+          step={this.state.step}
+          Kampvinder={this.state.Kampvinder}
+        />
+      );
+
+      leftCol = <LeftColumn nextStep={this.nextStep} step={this.state.step} />;
+      midCol = <MidCol nextStep={this.nextStep} step={this.state.step} />;
+      rColm = (
+        <RightCol
+          nextStep={this.nextStep}
+          step={this.state.step}
+          Kampvinder={this.state.Kampvinder}
+        />
+      );
+    }
 
     switch (step) {
       //   default:*/
@@ -111,7 +136,7 @@ export class site extends Component {
       case 8:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
             <MidCol nextStep={this.nextStep} step={this.state.step} />
             <BlackCover step={this.state.step} />{" "}
           </div>
@@ -119,7 +144,7 @@ export class site extends Component {
       case 9:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
             <MidCol nextStep={this.nextStep} step={this.state.step} />
             <BlackCover step={this.state.step} />{" "}
           </div>
@@ -128,7 +153,7 @@ export class site extends Component {
       case 10:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
             <MidCol nextStep={this.nextStep} step={this.state.step} />
             <BlackCover step={this.state.step} />{" "}
           </div>
@@ -136,7 +161,7 @@ export class site extends Component {
       case 11:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
             <MidCol
               nextStep={this.nextStep}
               step={this.state.step}
@@ -148,8 +173,8 @@ export class site extends Component {
       case 12:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
-            <MidCol nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
+            {midCol}
             <RightCol
               nextStep={this.nextStep}
               step={this.state.step}
@@ -161,8 +186,8 @@ export class site extends Component {
       case 13:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
-            <MidCol nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
+            {midCol}
             <RightCol
               nextStep={this.nextStep}
               step={this.state.step}
@@ -174,8 +199,8 @@ export class site extends Component {
       case 14:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
-            <MidCol nextStep={this.nextStep} step={this.state.step} />
+            {leftCol}
+            {midCol}
             <RightCol
               nextStep={this.nextStep}
               step={this.state.step}
@@ -188,13 +213,9 @@ export class site extends Component {
       case 15:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
-            <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol
-              nextStep={this.nextStep}
-              step={this.state.step}
-              Kampvinder={this.state.Kampvinder}
-            />
+            {leftCol}
+            {midCol}
+            {rColm}
             <BlackCover nextStep={this.nextStep} step={this.state.step} />
             <TheGame nextStep={this.nextStep} step={this.state.step} />
             <BlackCover step={this.state.step} />{" "}
@@ -203,13 +224,9 @@ export class site extends Component {
       case 16:
         return (
           <div id="site_content_container">
-            <LeftColumn nextStep={this.nextStep} step={this.state.step} />
-            <MidCol nextStep={this.nextStep} step={this.state.step} />
-            <RightCol
-              nextStep={this.nextStep}
-              step={this.state.step}
-              Kampvinder={this.state.Kampvinder}
-            />
+            {leftCol}
+            {midCol}
+            {rColm}
             <TheGame
               nextStep={this.nextStep}
               step={this.state.step}

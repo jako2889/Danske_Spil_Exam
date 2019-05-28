@@ -44,7 +44,7 @@ export class YellowBox extends Component {
     ) {
       next = (
         <button id="yb_but" onClick={this.continue}>
-          NEXT
+          Næste
         </button>
       );
     }
@@ -80,7 +80,7 @@ export class YellowBox extends Component {
               <img src={joystick} alt="" />
             </div>
           </div>
-          <div id="y_txt" dangerouslySetInnerHTML={{__html: ybC.info}}></div>
+          <div id="y_txt" dangerouslySetInnerHTML={{ __html: ybC.info }} />
           {next}
         </div>
       </div>

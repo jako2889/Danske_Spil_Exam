@@ -72,7 +72,7 @@ export class First_row extends Component {
       ybContent = {
         title: "Tilføj til favoritter",
         info:
-          "Du kan tilføje bets til dine favortitter så du altid har det lige ved hånden",
+          "Du kan tilføje bets til dine favortitter så du altid har dem lige ved hånden",
         button: "on"
       };
       yBox = (
@@ -91,7 +91,7 @@ export class First_row extends Component {
     if (this.props.step === 9) {
       ybContent = {
         title: "Sorter og Filtrer",
-        info: "Du kan sorte og filtere efter tid, væddemål, TV",
+        info: "Du kan sortere og filtere efter tid, væddemål, TV",
         button: "on"
       };
       yBox = (

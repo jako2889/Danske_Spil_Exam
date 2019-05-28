@@ -5,6 +5,7 @@ import Step1 from "./components/Step1";
 import Mid_Column from "./components/Mid_Column.jsx";
 import FormBeginFlow from "./components/FormBeginFlow.jsx";
 import List from "./components/List.jsx";
+// import "../css/mediaQ.scss";
 
 // }
 
