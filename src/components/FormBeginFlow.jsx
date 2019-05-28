@@ -43,8 +43,31 @@ export class FormBeginFlow extends Component {
             securityAnswer: "",
             maxBetting: ""
         },
-        nextError: false
+        nextError: false,
+        userData: []
     }
+
+    componentDidMount() {
+        // FETCH DATABASE AND POST DATA STRING TO DATABASE
+        fetch("https://volt3sem-11e6.restdb.io/rest/information", {
+           method: "get",
+           headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "x-apikey": "5ca21c32df5d634f46ecb11b",
+            "cache-control": "no-cache"
+           }
+       })
+       .then(res => res.json())
+       .then(data => {
+
+   // SET STATE TO BE EQUAL TO DATA
+       this.setState({
+           userData: data,
+       })
+
+       console.log(this.state.userData);
+       });
+}
 
     // PROCEED TO NEXT STEP
     nextStep = (e) => {
