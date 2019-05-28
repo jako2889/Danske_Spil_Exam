@@ -31,10 +31,24 @@ export class FormAccountDetails extends Component {
         const { values, handleChange, formErrors } = this.props;
         console.log(formErrors);
         let nextError = this.props.nextError;
+        let userEmailError = this.props.userEmailError;
         console.log(nextError);
         let buttonStyle = {};
 
         if(nextError === true) {
+            buttonStyle = {
+                background: "#80808087",
+                borderColor: "#80808087",
+                transition: "1s"
+            };
+        }else {
+            buttonStyle = {
+                background: "#feb700",
+                borderColor: "#feb700",
+                transition: "1s"
+            };
+        }
+        if(userEmailError === true) {
             buttonStyle = {
                 background: "#80808087",
                 borderColor: "#80808087",
@@ -106,7 +120,8 @@ export class FormAccountDetails extends Component {
                     <span className="errorMessage">{formErrors.confirmPassword}</span>
                 )}
                  </div>
-                {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}       
+                {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}   
+                {userEmailError === true ? <div className="errorText">Den valgte email er allerede i brug.</div> : ""}     
                 <button style={buttonStyle} type="submit" onClick={this.continue}>Næste</button>
 
             </form>
