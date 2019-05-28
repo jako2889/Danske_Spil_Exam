@@ -198,6 +198,22 @@ export class FormBeginFlow extends Component {
         let {email, userName, password, confirmPassword} = this.state;
         let accountValues = [email, userName, password, confirmPassword];
         console.log("This is accountvalues: ",accountValues);
+        console.log("STATE EMAIL",email);
+
+
+        //MAKE USER DATA FROM DATABASE INTO VARIABLE AND MAP THROUGH DATA TO FIND EMAILS
+        let userData = this.state.userData;
+        console.log("THIS IS THE USER DATA: ", userData);
+        let userEmailCheck = userData.map((user => {
+            return email  === user.email && true;
+        }));
+        console.log("EMAILS IS SAME AS DATA EMAIL: ",userEmailCheck);
+
+        //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
+        let checkAnyEmailTrue = userEmailCheck.some(function (item) {
+            return item === true;
+        });
+        console.log("IS INPUT EMAIL SAME AS DATA EMAIL?",checkAnyEmailTrue);
 
         //MAKE VARIALBE THAT ITERATE WITH MAP THROUGH ACCVALUES AND SETS VALUE TO TRUE IF STRING IS EMPTY
         let check = accountValues.map((value => {
