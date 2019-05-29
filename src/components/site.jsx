@@ -217,7 +217,7 @@ export class site extends Component {
             {midCol}
             {rColm}
             <BlackCover nextStep={this.nextStep} step={this.state.step} />
-            <TheGame nextStep={this.nextStep} step={this.state.step} />
+            <TheGame nextStep={this.nextStep} step={this.state.step} Kampvinder={this.state.Kampvinder} />
             <BlackCover step={this.state.step} />{" "}
           </div>
         );
@@ -231,6 +231,7 @@ export class site extends Component {
               nextStep={this.nextStep}
               step={this.state.step}
               nextStepAPP={this.props.nextStepAPP}
+              Kampvinder={this.state.Kampvinder}
             />
             <BlackCover step={this.state.step} />{" "}
           </div>

@@ -37,7 +37,7 @@ export class TheGame extends Component {
             </div>
             <div className="tg_league">ESL Pro League</div>
           </div>
-          {this.props.step === 15 && <TheGameStep1 />}
+          {this.props.step === 15 && <TheGameStep1 Kampvinder={this.props.Kampvinder} />}
           {this.props.step === 16 && (
             <TheGameStep2 nextStepAPP={this.props.nextStepAPP} />
           )}
@@ -49,16 +49,49 @@ export class TheGame extends Component {
 export default TheGame;
 
 export class TheGameStep1 extends Component {
+  state = {
+    AstralisScore: 0,
+    LiquidScore: 0,
+    count: 0
+  };
   constructor() {
     super();
     this.game = React.createRef();
   }
 
+
   componentDidMount() {
     const gameRef = this.game.current;
-    console.log(gameRef);
+    console.log("THIS IS GAME: ",gameRef);
+    console.log(this.game.current.value);
+
+    let kampvinder = this.props.Kampvinder;
+    console.log("Kamp vinder er: ", kampvinder);
+
+    this.timeInterval = setInterval(() => {
+      this.setState({
+        count: this.state.count + 1
+      })
+    }, 500);
+
+   this.GoalTime = setInterval(() =>{
+  
+      if(kampvinder === "Astralis"){
+        console.log("Astralis wins!");
+        this.setState({AstralisScore: 1});
+        clearInterval(this.GoalTime);
+      }else {
+        console.log("Liquid wins!");
+        this.setState({LiquidScore: 1});
+        clearInterval(this.GoalTime);
+      }
+      
+      }, 10000);
+
+
   }
   render() {
+    const count = this.state.count;
     return (
       <div className="tg_s1_wrap">
         <div className="tg_s1_txt">
@@ -69,13 +102,13 @@ export class TheGameStep1 extends Component {
           <div className="team_counter_com">
             <div>
               <div>
-                Astralis <span>0</span> - <span>0</span> Liquid
+                Astralis <span className="astralisScore">{this.state.AstralisScore}</span> - <span className="liquidScore">{this.state.LiquidScore}</span> Liquid
               </div>
-              <div>29´</div>
+              <div>{count}</div>
             </div>
           </div>
           <div className="tg_svg_con">
-            <GameSvg ref={this.game} />
+            <GameSvg Kampvinder={this.props.Kampvinder} ref={this.game} />
           </div>
         </div>
       </div>
