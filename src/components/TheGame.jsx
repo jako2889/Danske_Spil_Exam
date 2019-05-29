@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/theGame.scss";
 import joystick from "../assets/joystick.svg";
 import GameSvg from "./GameSvg";
+import { TweenMax, Back } from "gsap";
 
 export class TheGame extends Component {
   // MAKE COUNTER / AFTER COUNTER ENDS GO TO NEXT STEP
@@ -59,10 +60,21 @@ export class TheGameStep1 extends Component {
   constructor() {
     super();
     this.game = React.createRef();
+
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
   }
 
 
   componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      y: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+
     const gameRef = this.game.current;
     console.log("THIS IS GAME: ",gameRef);
     console.log(this.game.current.value);
@@ -112,7 +124,7 @@ export class TheGameStep1 extends Component {
   render() {
     const count = this.state.count;
     return (
-      <div className="tg_s1_wrap">
+      <div ref={div => (this.myElement = div)} className="tg_s1_wrap">
         <div className="tg_s1_txt">
           Mærk spændingen ved at bette når du følger dine favorit sportgrene i
           tv'et eller på internettet.
@@ -136,12 +148,24 @@ export class TheGameStep1 extends Component {
 }
 
 export class TheGameStep2 extends Component {
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    // reference to the animation
+    this.myTween = null;
+  }
   state = {
     AstralisScore: 0,
     LiquidScore: 0
   };
 
   componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 1, {
+      y: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
     // GET CLICKED TEAM / WINNER FROM STATE
     let kampvinder = this.props.Kampvinder;
     console.log("Kamp vinder er: ", kampvinder);
@@ -159,7 +183,7 @@ export class TheGameStep2 extends Component {
 
   render() {
     return (
-      <div className="tg_s2_wrap">
+      <div ref={div => (this.myElement = div)} className="tg_s2_wrap">
         <div className="tg_s2_header">Tilykkke</div>
         <div className="result">
           Astralis <span>{this.state.AstralisScore}</span> - <span>{this.state.LiquidScore}</span> Liquid{" "}

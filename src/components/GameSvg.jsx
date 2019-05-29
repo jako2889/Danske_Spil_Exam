@@ -23,12 +23,14 @@ class GameSvg extends Component {
         console.log("COUNTER: ",counterDeath);
         console.log("TERRORIST: ", terrorDeath);
         counter.classList.remove("shooting");
+        terror.classList.remove("shooting");
         counter.classList.add("counterdeath");
       }else {
         console.log("Terrorist is dead");
         console.log("COUNTER: ",counterDeath);
         console.log("TERRORIST: ", terrorDeath);
         terror.classList.remove("shooting");
+        counter.classList.remove("shooting");
         terror.classList.add("terrordeath");
       }
 
