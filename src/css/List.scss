@@ -63,3 +63,29 @@
     }
     }  
 }
+
+// RESPONSIVE
+@media only screen and (max-width: 768px) {
+    .list_container{
+        .list {
+            .users {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    }
+  }
+  @media only screen and (max-width: 414px) {
+    .list_container{
+        .list {
+            .users {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    }
+  }

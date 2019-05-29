@@ -43,16 +43,71 @@ export class FormBeginFlow extends Component {
             securityAnswer: "",
             maxBetting: ""
         },
-        nextError: false
+        nextError: false,
+        userData: [],
+        userEmailError: false
     }
+
+    componentDidMount() {
+        // FETCH DATABASE AND POST DATA STRING TO DATABASE
+        fetch("https://volt3sem-11e6.restdb.io/rest/information", {
+           method: "get",
+           headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "x-apikey": "5ca21c32df5d634f46ecb11b",
+            "cache-control": "no-cache"
+           }
+       })
+       .then(res => res.json())
+       .then(data => {
+
+   // SET STATE TO BE EQUAL TO DATA
+       this.setState({
+           userData: data,
+       })
+
+       console.log(this.state.userData);
+       });
+}
 
     // PROCEED TO NEXT STEP
     nextStep = (e) => {
         e.preventDefault();
-        const { step } =  this.state;
-        this.setState({
-            step: step + 1
+
+        //WHEN TRYING TO GO TO NEXT STEP CHECK IF EMAIL IS ALREADY IN USE
+        let {email, userName, password, confirmPassword} = this.state;
+        //MAKE USER DATA FROM DATABASE INTO VARIABLE AND MAP THROUGH DATA TO FIND EMAILS
+        let userData = this.state.userData;
+        console.log("THIS IS THE USER DATA: ", userData);
+        let userEmailCheck = userData.map((user => {
+            return email  === user.email && true;
+        }));
+        console.log("EMAILS IS SAME AS DATA EMAIL: ",userEmailCheck);
+        
+        //LOOP THROUGH AND CHECK IF ANY IS TRUE IF TRUE PASS TRUE IF ELSE PASS FALSE
+        let checkAnyEmailTrue = userEmailCheck.some(function (item) {
+            return item === true;
         });
+        console.log("IS INPUT EMAIL SAME AS DATA EMAIL?",checkAnyEmailTrue);
+
+        if(checkAnyEmailTrue === true) {
+            console.log("EMAIL IS INCORRECT - ALREADY IN USE")
+            //CALL CURRENT STEP
+            this.currentStep(e);
+            //SET STATE
+            this.setState({userEmailError: true});
+        }else {
+            console.log("EMAIL IS FINE");
+            //CALL NEXT STEP
+            const { step } =  this.state;
+            this.setState({
+                step: step + 1
+            });
+            //SET STATE
+            this.setState({userEmailError: false});
+    }
+
+
     }
 
     // BACK TO PREVIOUS STEP
@@ -76,6 +131,7 @@ export class FormBeginFlow extends Component {
         this.setState({[input]: e.target.value});
         // CHANGE STATE IF USER TYPES IN INPUT FIELDS "AFTER" TRYING TO CLICK NEXT WHEN NOT FINISHED
         this.setState({nextError: false});
+        this.setState({userEmailError: false});
 
 
 //FOR EACH INPUT MAKE VALIDATION CHECK WITH SWITCH SYNC WITH NAME ATTRIBUTE IN INPUT
@@ -175,6 +231,9 @@ export class FormBeginFlow extends Component {
         let {email, userName, password, confirmPassword} = this.state;
         let accountValues = [email, userName, password, confirmPassword];
         console.log("This is accountvalues: ",accountValues);
+        console.log("STATE EMAIL",email);
+
+
 
         //MAKE VARIALBE THAT ITERATE WITH MAP THROUGH ACCVALUES AND SETS VALUE TO TRUE IF STRING IS EMPTY
         let check = accountValues.map((value => {
@@ -292,6 +351,7 @@ export class FormBeginFlow extends Component {
                     formErrors={this.state.formErrors}
                     handleSubmitAccount={this.handleSubmitAccount}
                     nextError={this.state.nextError}
+                    userEmailError={this.state.userEmailError}
                     />
                 )
             case 2:

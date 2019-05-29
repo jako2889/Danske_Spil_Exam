@@ -24,7 +24,6 @@ form {
 
     .errorText {
         position: absolute;
-        left: 40%;
         bottom: 0;
         font-size: 1.2em;
         text-transform: uppercase;
@@ -213,3 +212,50 @@ form {
  }
 
 }
+
+// RESPONSIVE
+@media only screen and (max-width: 768px) {
+    .form_wrapper{
+        .formHeader_con {
+            width: 90%;
+            text-align: center;
+        }
+
+    }
+  }
+
+  @media only screen and (max-width: 415px) {
+    .form_wrapper{
+        form {
+            .formIntroText {
+                width: 85%;
+            }
+            .inputStyle {
+                width: 75%;
+
+                .errorMessage {
+                    font-size: 0.8em;
+                }
+            }
+            .doubleInputfield1 {
+                width: 75%;
+            }
+            .doubleInputfield2 {
+                width: 75%;
+            }
+            select {
+                width: 75%;
+            }
+            .errorText {
+                font-size: 0.8em;
+            }
+            .maxBettingText {
+                width: 85%;
+            }
+            .nemIDImg {
+                width: 65%;
+                margin: 10px;
+            }
+        }
+    }
+  }

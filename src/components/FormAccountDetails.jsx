@@ -31,20 +31,35 @@ export class FormAccountDetails extends Component {
         const { values, handleChange, formErrors } = this.props;
         console.log(formErrors);
         let nextError = this.props.nextError;
+        let userEmailError = this.props.userEmailError;
         console.log(nextError);
         let buttonStyle = {};
+        let emailInputStyle = {};
 
         if(nextError === true) {
             buttonStyle = {
                 background: "#80808087",
                 borderColor: "#80808087",
-                transition: "1s"
+                transition: ".5s"
             };
         }else {
             buttonStyle = {
                 background: "#feb700",
                 borderColor: "#feb700",
                 transition: "1s"
+            };
+        }
+        if(userEmailError === true) {
+            emailInputStyle = {
+                borderColor: "#c50005",
+                color: "#c50005",
+                transition: "1s"
+            };
+        }else {
+            emailInputStyle = {
+                borderColor: "#535353",
+                color: "",
+                transition: ".5s"
             };
         }
 
@@ -60,7 +75,7 @@ export class FormAccountDetails extends Component {
                     </div>
                 
                 <div className="inputStyle">
-                <input name="email" type="email" placeholder="Email"
+                <input style={emailInputStyle} name="email" type="email" placeholder="Email"
                  onChange={handleChange("email")}
                  defaultValue={values.email}
                  required
@@ -106,7 +121,8 @@ export class FormAccountDetails extends Component {
                     <span className="errorMessage">{formErrors.confirmPassword}</span>
                 )}
                  </div>
-                {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}       
+                {nextError === true ? <div className="errorText">Du mangler at indfylde felter.</div> : ""}   
+                {userEmailError === true ? <div className="errorText">Den valgte email er allerede i brug.</div> : ""}     
                 <button style={buttonStyle} type="submit" onClick={this.continue}>Næste</button>
 
             </form>

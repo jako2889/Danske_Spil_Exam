@@ -41,3 +41,17 @@
             }
     }
 }
+
+// RESPONSIVE 
+@media only screen and (max-width: 415px) {
+    .succes_content_wrapper {
+        .succes_con {
+            .succesText {
+                width: 85%;
+            }
+            .formFooter_con {
+                margin-top: 20%;
+            }
+        }
+    }
+}
