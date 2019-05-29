@@ -190,7 +190,7 @@ export class TheGameStep2 extends Component {
         </div>
 
         <div className="tg_s2_txt">
-          Tillykke med dit første succesfulde bet og en sejr til Astralis! Din
+          Tillykke med dit første succesfulde bet og en sejr til {this.props.Kampvinder}! Din
           gevinst på 250kr betting bonus er sendt med til din oprettelse af din
           danske spil konto.
         </div>
