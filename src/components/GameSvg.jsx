@@ -53,7 +53,7 @@ class GameSvg extends Component {
     this.Death = setInterval(() =>{
     this.GameAnimationHandler();
     clearInterval(this.Death);
-  }, 10010);
+  }, 7510);
 
   }
   render() {

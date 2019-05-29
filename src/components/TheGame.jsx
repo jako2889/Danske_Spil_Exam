@@ -39,7 +39,7 @@ export class TheGame extends Component {
           </div>
           {this.props.step === 15 && <TheGameStep1 nextStep={this.props.nextStep} Kampvinder={this.props.Kampvinder} />}
           {this.props.step === 16 && (
-            <TheGameStep2 nextStepAPP={this.props.nextStepAPP} />
+            <TheGameStep2 Kampvinder={this.props.Kampvinder} nextStepAPP={this.props.nextStepAPP} />
           )}
         </div>
       </div>
@@ -100,13 +100,13 @@ export class TheGameStep1 extends Component {
         clearInterval(this.PointTime);
       }
       
-      }, 10000);
+      }, 7500);
 
       this.TeamWonStep = setInterval(() => {
         //CHANGE STEP
         this.props.nextStep();
         clearInterval(this.TeamWonStep);
-      }, 20000);
+      }, 15500);
 
   }
   render() {
@@ -136,12 +136,33 @@ export class TheGameStep1 extends Component {
 }
 
 export class TheGameStep2 extends Component {
+  state = {
+    AstralisScore: 0,
+    LiquidScore: 0
+  };
+
+  componentDidMount() {
+    // GET CLICKED TEAM / WINNER FROM STATE
+    let kampvinder = this.props.Kampvinder;
+    console.log("Kamp vinder er: ", kampvinder);
+
+    if(kampvinder === "Astralis"){
+      console.log("Astralis wins!");
+      this.setState({AstralisScore: 1});
+
+    }else {
+      console.log("Liquid wins!");
+      this.setState({LiquidScore: 1});
+    }
+
+  }
+
   render() {
     return (
       <div className="tg_s2_wrap">
         <div className="tg_s2_header">Tilykkke</div>
         <div className="result">
-          Astralis <span>2</span> - <span>1</span> Liquid{" "}
+          Astralis <span>{this.state.AstralisScore}</span> - <span>{this.state.LiquidScore}</span> Liquid{" "}
         </div>
 
         <div className="tg_s2_txt">
