@@ -5,6 +5,33 @@ class GameSvg extends Component {
   constructor() {
     super();
     this.svg = React.createRef();
+    this.GameAnimationHandler = this.GameAnimationHandler.bind(this)
+  }
+
+  GameAnimationHandler() {
+    console.log("hej");
+    let counterDeath = this.props.counterDeath;
+    let terrorDeath = this.props.terrorDeath;
+    console.log("COUNTER: ",counterDeath);
+    console.log("TERRORIST: ", terrorDeath);
+
+    let counter = this.refs.counter;
+    let terror = this.refs.terror;
+
+      if(counterDeath === true) {
+        console.log("Counter is dead");
+        console.log("COUNTER: ",counterDeath);
+        console.log("TERRORIST: ", terrorDeath);
+        counter.classList.remove("shooting");
+        counter.classList.add("counterdeath");
+      }else {
+        console.log("Terrorist is dead");
+        console.log("COUNTER: ",counterDeath);
+        console.log("TERRORIST: ", terrorDeath);
+        terror.classList.remove("shooting");
+        terror.classList.add("terrordeath");
+      }
+
   }
 
   componentDidMount() {
@@ -22,13 +49,11 @@ class GameSvg extends Component {
     let kampvinder = this.props.Kampvinder;
     console.log("Kamp vinder er: ", kampvinder);
 
-    if(kampvinder === "Astralis") {
-      counter.classList.remove("shooting");
-      counter.classList.add("counterdeath");
-    }else {
-      terror.classList.remove("shooting");
-      terror.classList.add("terrordeath");
-    }
+    //GOT TO ANIMATIONS HANDLER TO CHECK IF ANY CHARACTER IS "DEAD" AFTER 11 SECONDS
+    this.Death = setInterval(() =>{
+    this.GameAnimationHandler();
+    clearInterval(this.Death);
+  }, 10010);
 
   }
   render() {

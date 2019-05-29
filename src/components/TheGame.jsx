@@ -37,7 +37,7 @@ export class TheGame extends Component {
             </div>
             <div className="tg_league">ESL Pro League</div>
           </div>
-          {this.props.step === 15 && <TheGameStep1 Kampvinder={this.props.Kampvinder} />}
+          {this.props.step === 15 && <TheGameStep1 nextStep={this.props.nextStep} Kampvinder={this.props.Kampvinder} />}
           {this.props.step === 16 && (
             <TheGameStep2 nextStepAPP={this.props.nextStepAPP} />
           )}
@@ -52,7 +52,9 @@ export class TheGameStep1 extends Component {
   state = {
     AstralisScore: 0,
     LiquidScore: 0,
-    count: 0
+    count: 0,
+    counterDeath: false,
+    terrorDeath: false
   };
   constructor() {
     super();
@@ -65,29 +67,46 @@ export class TheGameStep1 extends Component {
     console.log("THIS IS GAME: ",gameRef);
     console.log(this.game.current.value);
 
+    // GET CLICKED TEAM / WINNER FROM STATE
     let kampvinder = this.props.Kampvinder;
     console.log("Kamp vinder er: ", kampvinder);
 
+    //TIMER DURING MATCH
     this.timeInterval = setInterval(() => {
       this.setState({
         count: this.state.count + 1
       })
     }, 500);
 
-   this.GoalTime = setInterval(() =>{
+   // SET INTERVAL FOR TIME POINT IS SCORED AND SET TO CORRECT TEAM 
+   this.PointTime = setInterval(() =>{
   
       if(kampvinder === "Astralis"){
         console.log("Astralis wins!");
-        this.setState({AstralisScore: 1});
-        clearInterval(this.GoalTime);
+        this.setState({
+          AstralisScore: 1,
+          counterDeath: true
+        });
+        console.log(this.state.counterDeath);
+        clearInterval(this.PointTime);
+
       }else {
         console.log("Liquid wins!");
-        this.setState({LiquidScore: 1});
-        clearInterval(this.GoalTime);
+        this.setState({
+          LiquidScore: 1,
+          terrorDeath: true
+        });
+        console.log(this.state.terrorDeath);
+        clearInterval(this.PointTime);
       }
       
       }, 10000);
 
+      this.TeamWonStep = setInterval(() => {
+        //CHANGE STEP
+        this.props.nextStep();
+        clearInterval(this.TeamWonStep);
+      }, 20000);
 
   }
   render() {
@@ -108,7 +127,7 @@ export class TheGameStep1 extends Component {
             </div>
           </div>
           <div className="tg_svg_con">
-            <GameSvg Kampvinder={this.props.Kampvinder} ref={this.game} />
+            <GameSvg counterDeath={this.state.counterDeath} terrorDeath={this.state.terrorDeath} Kampvinder={this.props.Kampvinder} ref={this.game} />
           </div>
         </div>
       </div>
