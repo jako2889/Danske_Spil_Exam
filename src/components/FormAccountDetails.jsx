@@ -75,7 +75,7 @@ export class FormAccountDetails extends Component {
                     </div>
                 
                 <div className="inputStyle">
-                <input style={emailInputStyle} name="email" type="email" placeholder="Email"
+                <input style={emailInputStyle} name="email" type="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="Email"
                  onChange={handleChange("email")}
                  defaultValue={values.email}
                  required

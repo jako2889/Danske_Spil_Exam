@@ -60,7 +60,7 @@ export class FormPersonalDetails extends Component {
                     </div>
                     
                     <div className="inputStyle">
-                    <input name="cpr" type="text" placeholder="Cpr-nummer"
+                    <input name="cpr" type="text" pattern="[0-9]+" placeholder="Cpr-nummer"
                      onChange={handleChange("cpr")}
                      defaultValue={values.cpr}
                      required
@@ -133,7 +133,7 @@ export class FormPersonalDetails extends Component {
                 )}
                         </div>  
                         <div className="inputStyle">
-                            <input name="postNumber" type="text" placeholder="Postnummer"
+                            <input name="postNumber" type="text" pattern="[0-9]+" placeholder="Postnummer"
                             onChange={handleChange("postNumber")}
                             defaultValue={values.postNumber}
                             required
@@ -269,7 +269,7 @@ export class FormPersonalDetails extends Component {
                 )}
 
                     <div className="inputStyle">
-                    <input name="phone" type="text" placeholder="Telefonnummer"
+                    <input name="phone" type="text" pattern="[0-9]+" placeholder="Telefonnummer"
                      onChange={handleChange("phone")}
                      defaultValue={values.phone}
                      required
