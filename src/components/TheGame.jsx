@@ -127,7 +127,7 @@ export class TheGameStep1 extends Component {
       <div ref={div => (this.myElement = div)} className="tg_s1_wrap">
         <div className="tg_s1_txt">
           Mærk spændingen ved at bette når du følger dine favorit sportgrene i
-          tv'et eller på internettet.
+          tv'et eller på internettet. Se om dit valgte hold<b> {this.props.Kampvinder}</b> vinder.
         </div>
         <div className="game_frame">
           <div className="team_counter_com">

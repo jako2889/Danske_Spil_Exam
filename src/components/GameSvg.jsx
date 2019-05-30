@@ -30,6 +30,7 @@ class GameSvg extends Component {
         counter.classList.remove("shooting");
         terror.classList.remove("shooting");
 
+        terror.classList.add("winner");
         counter.classList.add("counterdeath");
         headshot_counter.classList.add("headshot_counter");
       }else {
@@ -42,6 +43,7 @@ class GameSvg extends Component {
         terror.classList.remove("shooting");
         counter.classList.remove("shooting");
         
+        counter.classList.add("winner");
         terror.classList.add("terrordeath");
         headshot_terror.classList.add("headshot_terror");
       }
