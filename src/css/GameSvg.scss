@@ -1,32 +1,47 @@
+.cls-1 {
+  fill: #111c30;
+}
 
-  .cls-1 {
-    fill: #111c30;
-  }
+.cls-2 {
+  fill: #eee;
+}
 
-  .cls-2 {
-    fill: #eee;
-  }
+.cls-3, .cls-4, .cls-5 {
+  fill: #725236;
+}
 
-  .cls-3, .cls-4, .cls-5 {
-    fill: #725236;
-  }
+.cls-4, .cls-5 {
+  stroke: #000;
+  stroke-miterlimit: 10;
+}
 
-  .cls-4, .cls-5 {
-    stroke: #000;
-    stroke-miterlimit: 10;
-  }
+.cls-5 {
+  stroke-width: 2px;
+}
 
-  .cls-5 {
-    stroke-width: 2px;
-  }
+.cls-6 {
+  fill: #415d2a;
+}
 
-  .cls-6 {
-    fill: #415d2a;
-  }
+.cls-7 {
+  fill: #e8b418;
+}
 
-  .cls-7 {
-    fill: #e8b418;
-  }
+.cls-8 {
+  fill: #ffc325;
+}
+
+.cls-9 {
+  fill: #926c4b;
+}
+
+.cls-10 {
+  fill: #00553d;
+}
+
+.cls-11 {
+  opacity: 0.1;
+}
 
   // ANIMATION
 
@@ -264,4 +279,13 @@
   .winner {
     transition: 2s;
     fill: #00553d;
+  }
+
+  .winner_cup_hide {
+    opacity: 0;
+  }
+
+  .winner_cup_show {
+    transition: 2s;
+    opacity: 1;
   }
