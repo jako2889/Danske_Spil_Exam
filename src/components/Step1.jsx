@@ -1,9 +1,32 @@
 import React, { Component } from "react";
 import "../css/Step1.scss";
+import { TweenMax, Back } from "gsap";
 
 // import Step1Image from "../assets/step1_image.svg";
 import ds_logo from "../assets/ds_logo.svg";
 export class Step1 extends Component {
+  constructor(props) {
+    super(props);
+    // reference to the DOM node
+    this.myElement = null;
+    this.myElement2 = null;
+    // reference to the animation
+    this.myTween = null;
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement, 2, {
+      x: -1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+    // use the node ref to create the animation
+    this.myTween = TweenMax.from(this.myElement2, 2, {
+      delay: 0,
+      x: 1100,
+      ease: Back.easeOut.config(1.0002)
+    });
+  }
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -13,7 +36,7 @@ export class Step1 extends Component {
     return (
       <div className="Modal_wrapper">
         <div className="Modal_con">
-          <div className="lp_logo_wrap">
+          <div ref={div => (this.myElement = div)} className="lp_logo_wrap">
             <div className="lp_logo_con">
               <img src={ds_logo} alt="Danske spil logo" />
             </div>
@@ -32,6 +55,7 @@ export class Step1 extends Component {
           <div className="lp_btn_wrap">
             <div className="lp_btn_con">
               <button
+                ref={div => (this.myElement2 = div)}
                 className="lp_btn"
                 onClick={this.continue}
                 style={{ cursor: "pointer" }}
