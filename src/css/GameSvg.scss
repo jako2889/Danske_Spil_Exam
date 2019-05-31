@@ -24,7 +24,7 @@
 }
 
 .cls-7 {
-  fill: #e8b418;
+  fill: red;
 }
 
 .cls-8 {
@@ -42,6 +42,9 @@
 .cls-11 {
   opacity: 0.1;
 }
+.cls-12 {
+  fill: #e8b418;
+}
 
   // ANIMATION
 
@@ -55,22 +58,22 @@
   }
   @-webkit-keyframes shooting {
     0%   { transform: translate(0px, 0px); }
-    50% { transform: translate(0px, 5px); }
+    50% { transform: translate(0px, 2px); }
     100%   { transform: translate(0px, 0px);}
   }
   @-moz-keyframes shooting {
     0%   { transform: translate(0px, 0px); }
-    50% { transform: translate(0px, 5px); }
+    50% { transform: translate(0px, 2px); }
     100%   { transform: translate(0px, 0px);}
   }
   @-o-keyframes shooting {
     0%   { transform: translate(0px, 0px); }
-    50% { transform: translate(0px, 5px); }
+    50% { transform: translate(0px, 2px); }
     100%   { transform: translate(0px, 0px);}
   }
   @keyframes shooting {
     0%   { transform: translate(0px, 0px); }
-    50% { transform: translate(0px, 5px); }
+    50% { transform: translate(0px, 2px); }
     100%   { transform: translate(0px, 0px);}
   }
 
@@ -169,7 +172,7 @@
       opacity: 0;
      }
     50% { 
-      transform: translate(0px, 5px);
+      transform: translate(0px, 2px);
       opacity: 1;
      }
     100%   { 
@@ -183,7 +186,7 @@
       opacity: 0;
      }
     50% { 
-      transform: translate(0px, 5px);
+      transform: translate(0px, 2px);
       opacity: 1;
      }
     100%   { 
@@ -197,7 +200,7 @@
       opacity: 0;
      }
     50% { 
-      transform: translate(0px, 5px);
+      transform: translate(0px, 2px);
       opacity: 1;
      }
     100%   { 
@@ -211,7 +214,7 @@
       opacity: 0;
      }
     50% { 
-      transform: translate(0px, 5px);
+      transform: translate(0px, 2px);
       opacity: 1;
      }
     100%   { 
