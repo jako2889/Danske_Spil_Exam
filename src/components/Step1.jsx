@@ -16,13 +16,14 @@ export class Step1 extends Component {
 
   componentDidMount() {
     // use the node ref to create the animation
-    this.myTween = TweenMax.from(this.myElement, 2, {
+    this.myTween = TweenMax.from(this.myElement, .3, {
+      delay: .5,
       x: -1100,
       ease: Back.easeOut.config(1.0002)
     });
     // use the node ref to create the animation
-    this.myTween = TweenMax.from(this.myElement2, 2, {
-      delay: 0,
+    this.myTween = TweenMax.from(this.myElement2, .3, {
+      delay: .8,
       x: 1100,
       ease: Back.easeOut.config(1.0002)
     });
