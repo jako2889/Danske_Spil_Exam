@@ -30,7 +30,7 @@ export class TheGame extends Component {
     // -------------------------------------------------
 
     return (
-      <div className="theGame_wrap" onClick={this.continue}>
+      <div className="theGame_wrap">
         <div className="theGame_con">
           <div className="tg_head">
             <div className="tg_icon">
@@ -53,7 +53,7 @@ export class TheGameStep1 extends Component {
   state = {
     AstralisScore: 0,
     LiquidScore: 0,
-    count: 0,
+    count: 30,
     counterDeath: false,
     terrorDeath: false
   };
@@ -86,7 +86,7 @@ export class TheGameStep1 extends Component {
     //TIMER DURING MATCH
     this.timeInterval = setInterval(() => {
       this.setState({
-        count: this.state.count + 1
+        count: this.state.count - 1
       })
     }, 500);
 
@@ -134,7 +134,7 @@ export class TheGameStep1 extends Component {
               <div>
                 Astralis <span className="astralisScore">{this.state.AstralisScore}</span> - <span className="liquidScore">{this.state.LiquidScore}</span> Liquid
               </div>
-              <div>Seconds: {count}</div>
+              <div>Countdown: {count}</div>
             </div>
           </div>
           <div className="tg_svg_con">
