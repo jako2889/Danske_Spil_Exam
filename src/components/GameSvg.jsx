@@ -59,7 +59,6 @@ class GameSvg extends Component {
   componentDidMount() {
     const svgRef = this.svg.current;
     console.log("THIS IS SVG: ",svgRef);
-    console.log("THIS IS CHARACTERS: ",svgRef.lastElementChild);
     
     // MAKE VARIABLES FOR REFFERENCE TO DOM ELEMENTS
     let counter = this.refs.counter;

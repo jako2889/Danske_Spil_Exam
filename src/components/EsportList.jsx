@@ -25,7 +25,7 @@ export class EsportList extends Component {
     if (this.props.step === 6) {
       ybContent = {
         title: "Counter-Strike GO",
-        info: `Du kan bette på alle dine yndlings spil. Klik på <span class="hint">“Counter-Strike GO"</span> `,
+        info: `Du kan bette på alle dine yndlingsspil. Klik på <span class="hint">“Counter-Strike GO"</span> `,
         button: "on"
       };
       yBox = (

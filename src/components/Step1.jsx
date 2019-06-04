@@ -45,8 +45,7 @@ export class Step1 extends Component {
           <div className="lp_txt_con">
             <div className="lp_header">Velkommen</div>
             <div className="lp_l1">
-              Mærk spændeingen ved at bette når du spiller på dine yndlings
-              spil.
+              Mærk spændingen ved at bette når du spiller på dine yndlingsspil.
             </div>
             <div className="lp_l2">
               Gennemfør vores hurtige tutorial og vind en velkomst bonus på

@@ -30,7 +30,7 @@ class SportsgreneList extends Component {
     if (this.props.step === 5) {
       ybContent = {
         title: "ESPORT",
-        info: `Her ser du alle de Sportsgrene du kan spille på. Klik på <span class="hint">"ESPORT"</span> `,
+        info: `Her ser du alle de sportsgrene du kan spille på. Klik på <span class="hint">"ESPORT"</span> `,
         button: "on"
       };
       yBox = (

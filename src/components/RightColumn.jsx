@@ -66,7 +66,7 @@ export class RightColumn extends Component {
     if (this.props.step === 12) {
       ybContent = {
         title: "Kupon",
-        info: "Når du sætter et bet bliver det tilføjet til din Kupon",
+        info: "Når du sætter et bet bliver det tilføjet til din kupon.",
         button: "on"
       };
       yBox = (
@@ -105,8 +105,8 @@ export class RightColumn extends Component {
     // ---------------------------------------------------
     if (this.props.step === 14) {
       ybContent = {
-        title: "Samlet gevinst",
-        info: `Spiller du flere bets på engang kan du se din samlede gevinst her.  Lad os prøve et fiktivt spil på det bet du har lavet. Klik på <span class="hint">“Køb spil”</span> og se resultatet af kampen.`,
+        title: "Køb spil",
+        info: `Klik på <span class="hint">“Køb spil”</span> og se et fiktivt spil på det bet du har lavet.`,
         button: "on"
       };
       yBox = (

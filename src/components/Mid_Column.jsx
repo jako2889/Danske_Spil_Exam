@@ -72,7 +72,7 @@ export class First_row extends Component {
       ybContent = {
         title: "Tilføj til favoritter",
         info:
-          "Du kan tilføje bets til dine favortitter så du altid har dem lige ved hånden",
+          "Du kan tilføje bets til dine favoritter så du altid har dem lige ved hånden.",
         button: "on"
       };
       yBox = (
@@ -90,8 +90,8 @@ export class First_row extends Component {
     // ---------------------------------------------------
     if (this.props.step === 9) {
       ybContent = {
-        title: "Sorter og Filtrer",
-        info: "Du kan sortere og filtere efter tid, væddemål, TV",
+        title: "Sortér og Filtrér",
+        info: "Du kan sortere og filtrere efter tid, væddemål & TV",
         button: "on"
       };
       yBox = (
@@ -205,7 +205,7 @@ export class Scnd_Column extends Component {
     if (this.props.step === 10) {
       ybContent = {
         title: "Mulige Bets",
-        info: "Her ser du en liste med de bets du kan spille på samt oddsne",
+        info: "Her ser du en liste med de bets du kan spille på samt oddsene.",
         button: "on"
       };
       yBox = (
@@ -224,7 +224,7 @@ export class Scnd_Column extends Component {
       ybContent = {
         title: "Sæt dit væddemål",
         info: `Klik på odds <span class="hint">"1"</span>  eller <span class="hint">"2"</span> og sæt dit væddemål på den du tror der vinder mellem 
-        Astralis vs Liquid
+        Astralis vs Liquid.
         
         `,
         button: "on"

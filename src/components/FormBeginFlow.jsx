@@ -336,6 +336,7 @@ export class FormBeginFlow extends Component {
 
 
     render() {
+        // DECONSTRUCT STATE
         const { step } = this.state;
         const { email, userName, password, confirmPassword, cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone, securityQuestion, securityAnswer, maxBetting} = this.state;
         const values = { email, userName, password, confirmPassword, cpr, firstName, lastName, streetName, houseNumber, postNumber, city, country, phone, securityQuestion, securityAnswer, maxBetting};

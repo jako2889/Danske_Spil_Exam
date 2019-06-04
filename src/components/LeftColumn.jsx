@@ -47,7 +47,7 @@ class LeftColumn extends Component {
     if (this.props.step === 2) {
       ybContent = {
         title: "Søg",
-        info: "Søg efter vædemål, Sportgrene, Turneringer, etc.",
+        info: "Her kan du søge efter væddemål, sportgrene, turneringer, etc. Klik næste for at forsætte.",
         button: "on"
       };
       yBox = (
@@ -65,7 +65,7 @@ class LeftColumn extends Component {
     if (this.props.step === 3) {
       ybContent = {
         title: "FAVORITTER",
-        info: "Her finder du alle de spil du har tilføjet til dine favoritter",
+        info: "Her finder du alle de spil du har tilføjet til dine favoritter.",
         button: "on"
       };
       yBox = (
