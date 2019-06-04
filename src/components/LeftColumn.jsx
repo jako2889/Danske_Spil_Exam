@@ -148,7 +148,7 @@ class LeftColumn extends Component {
             </div>
           </li>
           <li className="list_1">
-            <div>
+            <div className="list_1_con">
               <div className="list_1_txt">Genveje</div>
               <div className="list_arrow">
                 <img src={arrowRight} />

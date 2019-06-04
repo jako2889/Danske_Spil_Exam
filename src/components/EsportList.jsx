@@ -154,7 +154,7 @@ export class EsportList extends Component {
           </li>
 
           <li className="list_3">
-            <div>
+            <div className="list_3_con">
               <div className="list_3_txt">
                 <div className="3_txt">Rainbow6</div>
               </div>

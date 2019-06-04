@@ -124,7 +124,7 @@ class SportsgreneList extends Component {
             {eSport}
           </li>
           <li className="list_2">
-            <div>
+            <div className="list_2_con">
               <div className="list_2_txt">
                 <div className="sport_icon">
                   <img src={basket} />

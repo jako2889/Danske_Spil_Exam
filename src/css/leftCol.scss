@@ -118,7 +118,7 @@ body {
   }
 }
 
-li > div :first-child:hover {
+.list_1_txt:hover, .list_2_txt:hover, .list_3_txt:hover, .list_4_txt:hover {
   cursor: pointer;
   background: #e0e0e0;
 }
